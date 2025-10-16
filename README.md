@@ -35,47 +35,53 @@ Cada item parece pulsar com energia — como se te escolhesse de volta.
 
 #Escolha de Classe
 1. Espada Desassembler (BladeRunner)
-Lâmina serrilhada feita de aço de nanotubo.
-Cortes tão limpos que os sensores nervosos nem têm tempo de reagir.
-50% de chance de esquartejar inimigos, reduzindo o dano deles.
-Você segue o caminho do corpo e da força — um verdadeiro mercenário das ruas.
-Classe: BladeRunner(Guerreiro)
-HP: 75
-Ataque: 30
-Defesa: 30
-Inventário:
-Espada Desassembler
-3x Nanogel (cura)
+<p>
+  Lâmina serrilhada feita de aço de nanotubo.
+  Cortes tão limpos que os sensores nervosos nem têm tempo de reagir.
+  50% de chance de esquartejar inimigos, reduzindo o dano deles.
+  Você segue o caminho do corpo e da força — um verdadeiro mercenário das ruas.
+</p>
+Classe: BladeRunner(Guerreiro) <br>
+HP: 75 <br>
+Ataque: 30 <br>
+Defesa: 30 <br>
+Inventário: <br>
+Espada Desassembler <br>
+3x Nanogel (cura) <br>
 
 2. Cajado Trojan (Technomancer)
-Um bastão neural projetado para sincronizar com a Rede.
-Transmite ondas de pulso capazes de travar sistemas — e mentes.
-50% de chance de stun, 100% em inimigos robóticos.
-Você segue o caminho da mente e do código — um tecnomante urbano.
-Classe: Cybermancer (Mago)
-HP: 50
-Ataque: 40
-Defesa: 20
-Inventário:
-Cajado Trojan
-3x Nanogel (cura)
+<p>
+  Um bastão neural projetado para sincronizar com a Rede.
+  Transmite ondas de pulso capazes de travar sistemas — e mentes.
+  50% de chance de stun, 100% em inimigos robóticos.
+  Você segue o caminho da mente e do código — um tecnomante urbano.
+</p>
+Classe: Cybermancer (Mago) <br>
+HP: 50 <br>
+Ataque: 40 <br>
+Defesa: 20 <br>
+Inventário: <br>
+Cajado Trojan <br>
+3x Nanogel (cura) <br>
 
 3. Escudo FireWall (Panzer)
-Blindagem experimental com reator térmico embutido.
-Projetada para refletir ataques e manter a linha sob fogo pesado.
-50% de chance de refletir metade do dano recebido.
-Você segue o caminho da resistência e da proteção — um Panzer humano.
-Classe: Panzer (Tanque)
-HP: 100
-Ataque: 20
-Defesa: 50
-Inventário:
-Escudo FireWall
-3x Nanogel (cura)
+<p>
+  Blindagem experimental com reator térmico embutido.
+  Projetada para refletir ataques e manter a linha sob fogo pesado.
+  50% de chance de refletir metade do dano recebido.
+  Você segue o caminho da resistência e da proteção — um Panzer humano.
+</p>
+Classe: Panzer (Tanque) <br>
+HP: 100 <br>
+Ataque: 20 <br>
+Defesa: 50 <br>
+Inventário: <br>
+Escudo FireWall <br>
+3x Nanogel (cura) <br>
 
-Escolha o item que sua mãe deixou:
-1 – Espada Desassembler (BladeRunner)
-2 – Cajado Trojan (Technomancer)
-3 – Escudo FireWall (Panzer)
+Escolha o item que sua mãe deixou: <br>
+1 – Espada Desassembler (BladeRunner) <br>
+2 – Cajado Trojan (Technomancer) <br>
+3 – Escudo FireWall (Panzer) <br>
 
 
