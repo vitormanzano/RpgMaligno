@@ -38,8 +38,8 @@ public class Item {
 
         Item other = (Item) obj;
         if (!this.nome.equals(other.nome) ||
-        this.descricao.equals(other.descricao) ||
-        this.efeito.equals(other.efeito) ||
+        !this.descricao.equals(other.descricao) ||
+        !this.efeito.equals(other.efeito) ||
         this.quantidade != other.quantidade) return false;
 
         return true;
