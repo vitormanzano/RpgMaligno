@@ -1,5 +1,5 @@
 # RpgMaligno
-Repositório para desenvolver um rpm em Java
+Repositório para desenvolver um rpg em Java
 # Introdução
 Introdução — “Neon Heist”
 Ano: 2197.
