@@ -17,12 +17,24 @@ public abstract class Personagem {
         this.pontosVida += aumentoNaVida;
     }
 
+    public void diminuirPontosVida(byte valorADiminuirDaVida) {
+        this.pontosVida -= valorADiminuirDaVida;
+    }
+
     public void recebeuAtaque(byte danoAtaque) {
         // TODO implementar como o ataque vai causar dano, como a defesa vai funcionar.
     }
 
     public void subirNivel() {
         nivel += 1
+    }
+
+    public void aumentarDefesa(byte aumentoNaDefesa) {
+        this.defesa += aumentoNaDefesa;
+    }
+
+    public void diminuirDefesa(byte valorADiminuirDaDefesa) {
+        this.defesa -= valorADiminuirDaDefesa;
     }
 
 
