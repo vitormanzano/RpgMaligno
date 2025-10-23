@@ -2,59 +2,29 @@ package models;
 
 public abstract class Personagem {
     private String nome;
-    private byte pontosVida;
-    private byte ataque;
-    private byte defesa;
-    private byte nivel;
+    private byte pontosVida, ataque, defesa, nivel;
     private Inventario inventario;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public Personagem(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) {
         this.nome = nome;
-    }
-
-    public byte getPontosVida() {
-        return pontosVida;
-    }
-
-    public void setPontosVida(byte pontosVida) {
-        this.pontosVida = pontosVida;
-    }
-
-    public byte getAtaque() {
-        return ataque;
-    }
-
-    public void setAtaque(byte ataque) {
         this.ataque = ataque;
-    }
-
-    public byte getDefesa() {
-        return defesa;
-    }
-
-    public void setDefesa(byte defesa) {
         this.defesa = defesa;
-    }
-
-    public byte getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(byte nivel) {
         this.nivel = nivel;
-    }
-
-    public Inventario getInventario() {
-        return inventario;
-    }
-
-    public void setInventario(Inventario inventario) {
         this.inventario = inventario;
     }
+    
+    public void aumentarPontosVida(byte aumentoNaVida) {
+        this.pontosVida += aumentoNaVida;
+    }
+
+    public void recebeuAtaque(byte danoAtaque) {
+        // TODO implementar como o ataque vai causar dano, como a defesa vai funcionar.
+    }
+
+    public void subirNivel() {
+        nivel += 1
+    }
+
 
     @Override
     public String toString() {
