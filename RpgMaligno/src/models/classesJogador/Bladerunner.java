@@ -4,8 +4,8 @@ import models.Personagem;
 
 public class Bladerunner extends Personagem {
 
-    public Bladerunner()
-    {
+    public Bladerunner() {
 
     }
 }
+

@@ -22,7 +22,7 @@ public abstract class Personagem {
     }
 
     public void subirNivel() {
-        nivel += 1
+        nivel += 1;
     }
 
 
