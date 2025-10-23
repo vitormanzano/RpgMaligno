@@ -21,13 +21,17 @@ public class Item {
         this.quantidade--;
     }
 
+    public byte getQuantidade() {
+        return this.quantidade;
+    }
+
     @Override
     public String toString()
     {
         return "Nome: " + this.nome +
-                "Descrição: " + this.descricao +
-                "Efeito: " + this.efeito +
-                "Quantidade: " + this.quantidade;
+                " Descrição: " + this.descricao +
+                " Efeito: " + this.efeito +
+                " Quantidade: " + this.quantidade;
     }
 
     @Override
