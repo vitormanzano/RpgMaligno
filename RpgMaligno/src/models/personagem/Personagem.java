@@ -1,9 +1,11 @@
-package models;
+package models.personagem;
+
+import models.Inventario;
 
 public abstract class Personagem {
-    private String nome;
-    private byte pontosVida, ataque, defesa, nivel;
-    private Inventario inventario;
+    protected String nome;
+    protected byte pontosVida, ataque, defesa, nivel;
+    protected Inventario inventario;
 
     public Personagem() { }
 
@@ -13,6 +15,10 @@ public abstract class Personagem {
         this.defesa = defesa;
         this.nivel = nivel;
         this.inventario = inventario;
+    }
+
+    public boolean estaVivo() {
+        return this.pontosVida > 0;
     }
     
     public void aumentarPontosVida(byte aumentoNaVida) {
