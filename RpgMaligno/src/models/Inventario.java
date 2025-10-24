@@ -2,7 +2,7 @@ package models;
 
 import java.util.List;
 
-public class Inventario {
+public class Inventario implements Cloneable {
     public List<Item> itens;
     private final byte QUANTIDADE_MAXIMA_DE_ITENS = 10;
 
@@ -83,5 +83,21 @@ public class Inventario {
             hash = hash * 7 + item.hashCode();
         }
         return hash;
+    }
+
+    public Inventario(Inventario modelo) throws Exception {
+        if (modelo == null) 
+            throw new Exception("Modelo inválido!");
+        this.itens = modelo.itens;
+    }
+
+    @Override
+    public Object clone() {
+        Inventario ret = null;
+        try {
+            ret = new Inventario(this);
+        }
+        catch (Exception e) { }
+        return ret;
     }
 }
