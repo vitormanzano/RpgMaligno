@@ -4,17 +4,17 @@ import models.Inventario;
 
 public abstract class Personagem {
     private String nome;
-    private byte pontosVida, ataque, defesa, nivel;
+    private byte pontosVida, ataque, defesa, nivel; 
     private Inventario inventario;
 
     public Personagem() { }
 
-    public Personagem(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) {
+    public Personagem(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
         this.nome = nome;
         this.ataque = ataque;
         this.defesa = defesa;
         this.nivel = nivel;
-        this.inventario = inventario;
+        this.inventario = new Inventario(inventario);
     }
 
     public String getNome() {
@@ -73,14 +73,18 @@ public abstract class Personagem {
         // TODO implementar como o ataque vai causar dano, como a defesa vai funcionar.
     }
 
+//    public byte atacarInimigo() {
+//
+//  }
+
+
     @Override
     public String toString() {
         return "Nome: " + this.nome + "\n" +
                 "Nível: " + this.nivel + "\n" +
                 "HP: " + this.pontosVida + "\n" +
                 "Ataque: " + this.ataque + "\n" +
-                "Defesa: " + this.defesa + "\n" +
-                "Inventário: " + this.inventario;
+                "Defesa: " + this.defesa + "\n";
     }
 
     @Override
