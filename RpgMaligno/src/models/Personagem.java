@@ -5,6 +5,8 @@ public abstract class Personagem {
     private byte pontosVida, ataque, defesa, nivel;
     private Inventario inventario;
 
+    public Personagem() { }
+
     public Personagem(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) {
         this.nome = nome;
         this.ataque = ataque;
@@ -29,18 +31,16 @@ public abstract class Personagem {
         this.ataque -= valorADiminuirDoAtaque;
     }
 
-
-
-    public void subirNivel() {
-        nivel += -1;
-    }
-
     public void aumentarDefesa(byte aumentoNaDefesa) {
         this.defesa += aumentoNaDefesa;
     }
 
     public void diminuirDefesa(byte valorADiminuirDaDefesa) {
         this.defesa -= valorADiminuirDaDefesa;
+    }
+
+    public void subirNivel() {
+        this.nivel += 1;
     }
 
     public void recebeuAtaque(byte danoAtaque) {

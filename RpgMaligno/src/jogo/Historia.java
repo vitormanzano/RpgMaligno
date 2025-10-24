@@ -20,6 +20,68 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         System.out.println("Talvez tenha sido por causa dele que morreu. Agora, é tudo o que resta dela. E tudo o que pode te dar uma chance de sobreviver.");
         Jogo.pressAnythingToContinue();
-        System.out.println("Escolha o legado deixado por sua mãe Cada item parece pulsar com energia — como se te escolhesse de volta.");
+        System.out.println("Escolha o legado deixado por sua mãe. Cada item parece pulsar com energia — como se te escolhesse de volta.");
+    }
+    public static void printClasses() {
+        System.out.println("Espada Desassembler\n\n" +
+                "Lâmina gravitônica capaz de distorcer o espaço em volta do alvo.\n" +
+                "Cortes tão limpos que os sensores nervosos nem têm tempo de reagir.\n" +
+                "Pulso de Colapso (50% chance de puxar e esquartejar inimigos)\n\n" +
+                "Classe: BladeRunner(Guerreiro)\n" +
+                "HP: 75\n" +
+                "Ataque: 30\n" +
+                "Defesa: 30\n" +
+                "Inventário:\n" +
+                "-Espada Desassembler\n" +
+                "-3x Nanogel (cura)\n"
+        );
+        System.out.println("Cajado Trojan\n\n" +
+                "Bastão neural forjado com circuitos vivos.\n" +
+                "Sintoniza-se à Rede e emite pulsos mentais que sobrecarregam sinapses e chips.\n" +
+                "Sobrecarga Neural (50% chance de paralizar o inimigo ao atacar)\n\n" +
+                "Classe: Cybermancer (Mago)\n" +
+                "HP: 50\n" +
+                "Ataque: 40\n" +
+                "Defesa: 20\n" +
+                "Inventário:\n" +
+                "-Cajado Trojan\n" +
+                "-3x Nanogel (cura)\n"
+        );
+        System.out.println("Escudo Firewall\n\n" +
+                "Blindagem tática alimentada por um reator térmico pulsante.\n" +
+                "Cada impacto acende o campo protetor, devolvendo parte do dano ao inimigo.\n" +
+                "Reflexão Prismática (50% chance de refletir metado do dano do ataque ao inimigo)\n\n" +
+                "Classe: Panzer(Tanque)\n" +
+                "HP: 100\n" +
+                "Ataque: 20\n" +
+                "Defesa: 50\n" +
+                "Inventário:\n" +
+                "-Escudo Firewall\n" +
+                "-3x Nanogel (cura)\n"
+        );
+    }
+    public static void printAto1() {
+        System.out.println("Depois de encontrar o item deixado por sua mãe, você o segura com firmeza.");
+        Jogo.pressAnythingToContinue();
+        System.out.println("A realidade bate: ninguém mais vai cuidar de você.");
+        Jogo.pressAnythingToContinue();
+        System.out.println("As ruas não esperam. A fome não espera. E as contas não perdoam.");
+        Jogo.pressAnythingToContinue();
+        System.out.println("Você sai para dar uma volta, pensar em tudo o que aconteceu no dia anterior.");
+        Jogo.pressAnythingToContinue();
+        System.out.println("Enquanto observa o neón tremeluzindo nas poças de chuva, o som agudo do comunicador corta o silêncio do beco.");
+        Jogo.pressAnythingToContinue();
+        System.out.println("A tela azulada pisca no escuro, projetando uma notificação holográfica:");
+        Jogo.pressAnythingToContinue();
+        System.out.println("“Mensagem recebida — Remetente: Falco”. Falco (voz cansada, mas firme):");
+        Jogo.pressAnythingToContinue();
+        System.out.println("“Ei, garoto... ouvi sobre sua mãe. Lamento mesmo. Ela era boa.“");
+        Jogo.pressAnythingToContinue();
+        System.out.println("“Se liga , tenho um trampo rápido. Nada limpo, mas paga bem.“");
+        Jogo.pressAnythingToContinue();
+        System.out.println("“Um carregamento da Monolith foi desviado e ficou encalhado num dos armazéns deles.“");
+        Jogo.pressAnythingToContinue();
+        System.out.println("“Coisa pesada — e valiosa. Preciso de alguém com coragem e... sem nada a perder. Tá dentro?”");
+        Jogo.pressAnythingToContinue();
     }
 }
