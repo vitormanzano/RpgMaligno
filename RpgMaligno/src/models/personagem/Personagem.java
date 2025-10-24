@@ -68,34 +68,6 @@ public abstract class Personagem {
     public boolean estaVivo() {
         return this.pontosVida > 0;
     }
-    
-    public void aumentarPontosVida(byte aumentoNaVida) {
-        this.pontosVida += aumentoNaVida;
-    }
-
-    public void diminuirPontosVida(byte valorADiminuirDaVida) {
-        this.pontosVida -= valorADiminuirDaVida;
-    }
-
-    public void aumentarAtaque(byte aumentoNoAtaque) {
-        this.ataque += aumentoNoAtaque;
-    }
-
-    public void diminuirAtaque(byte valorADiminuirDoAtaque) {
-        this.ataque -= valorADiminuirDoAtaque;
-    }
-
-    public void aumentarDefesa(byte aumentoNaDefesa) {
-        this.defesa += aumentoNaDefesa;
-    }
-
-    public void diminuirDefesa(byte valorADiminuirDaDefesa) {
-        this.defesa -= valorADiminuirDaDefesa;
-    }
-
-    public void subirNivel() {
-        this.nivel += 1;
-    }
 
     public void recebeuAtaque(byte danoAtaque) {
         // TODO implementar como o ataque vai causar dano, como a defesa vai funcionar.
