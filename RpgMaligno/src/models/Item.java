@@ -1,6 +1,6 @@
 package models;
 
-public class Item {
+public class Item implements Cloneable {
     private String nome;
     private String descricao;
     private String efeito;
@@ -57,5 +57,25 @@ public class Item {
         hash = hash * 7 + this.efeito.hashCode();
         hash = hash * 7 + ((Byte)this.quantidade).hashCode();
         return hash;
+    }
+
+    public Item(Item modelo) throws Exception {
+        if (modelo == null)
+            throw new Exception("Modelo inválido!");
+
+        this.nome = modelo.nome;
+        this.descricao = modelo.descricao;
+        this.efeito = modelo.efeito;
+        this.quantidade = modelo.quantidade;
+    }
+
+    @Override
+    public Object clone() {
+        Item ret = null;
+        try {
+            ret = new Item(this);
+        }
+        catch (Exception e) { }
+        return ret;
     }
 }
