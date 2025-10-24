@@ -3,9 +3,9 @@ package models.personagem;
 import models.Inventario;
 
 public abstract class Personagem {
-    protected String nome;
-    protected byte pontosVida, ataque, defesa, nivel;
-    protected Inventario inventario;
+    private String nome;
+    private byte pontosVida, ataque, defesa, nivel;
+    private Inventario inventario;
 
     public Personagem() { }
 
@@ -14,6 +14,54 @@ public abstract class Personagem {
         this.ataque = ataque;
         this.defesa = defesa;
         this.nivel = nivel;
+        this.inventario = inventario;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public byte getPontosVida() {
+        return this.pontosVida;
+    }
+
+    public void setPontosVida(byte pontosVida) {
+        this.pontosVida = pontosVida;
+    } 
+
+    public byte getAtaque() {
+        return this.ataque;
+    }
+
+    public void setAtaque(byte ataque) {
+        this.ataque = ataque;
+    }
+
+    public byte getDefesa() {
+        return this.defesa;
+    } 
+
+    public void setDefesa(byte defesa) {
+        this.defesa = defesa;
+    }
+
+    public byte getNivel() {
+        return this.nivel;
+    }
+
+    public void setNivel(byte nivel) {
+        this.nivel = nivel;
+    }
+
+    public Inventario getInventario() {
+        return this.inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
         this.inventario = inventario;
     }
 
