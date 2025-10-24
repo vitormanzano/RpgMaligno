@@ -21,12 +21,18 @@ public abstract class Personagem {
         this.pontosVida -= valorADiminuirDaVida;
     }
 
-    public void recebeuAtaque(byte danoAtaque) {
-        // TODO implementar como o ataque vai causar dano, como a defesa vai funcionar.
+    public void aumentarAtaque(byte aumentoNoAtaque) {
+        this.ataque += aumentoNoAtaque;
     }
 
+    public void diminuirAtaque(byte valorADiminuirDoAtaque) {
+        this.ataque -= valorADiminuirDoAtaque;
+    }
+
+
+
     public void subirNivel() {
-        nivel += 1
+        nivel += -1;
     }
 
     public void aumentarDefesa(byte aumentoNaDefesa) {
@@ -37,6 +43,9 @@ public abstract class Personagem {
         this.defesa -= valorADiminuirDaDefesa;
     }
 
+    public void recebeuAtaque(byte danoAtaque) {
+        // TODO implementar como o ataque vai causar dano, como a defesa vai funcionar.
+    }
 
     @Override
     public String toString() {
