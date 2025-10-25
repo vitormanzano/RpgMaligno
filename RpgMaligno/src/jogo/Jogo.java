@@ -13,6 +13,9 @@ public class Jogo {
         System.out.println("Bem vindo ao seu Rpg maligno...");
 
     }
+    public static void iniciarIntroducao(){
+        Historia.printIntroducao();
+    }
 
 
     public static void pressAnythingToContinue() {
