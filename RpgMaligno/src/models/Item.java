@@ -26,10 +26,7 @@ public class Item implements Cloneable {
     }
 
     public boolean verificarSeItemEhIgual(Item item) {
-        if (!this.nome.equals(item.nome) ||
-                !this.descricao.equals(item.descricao) ||
-                !this.efeito.equals(item.efeito) ||
-                this.quantidade != item.quantidade) return false;
+        if (this.getClass() != item.getClass()) return false;
         return true;
     }
 

@@ -19,8 +19,9 @@ public class Inventario implements Cloneable {
         Item itemDoInventario = verificarSeItemJaExisteNoInventario(item);
         if (itemDoInventario == null)
             itens.add(item); // Se esse item nao existir, insiro ele no inventário
-
-        itemDoInventario.aumentarQuantidade(); // Se já existir, aumento a quantidade
+        else {
+            itemDoInventario.aumentarQuantidade(); // Se já existir, aumento a quantidade
+        }
     }
 
     public void removerItem(Item item) {
