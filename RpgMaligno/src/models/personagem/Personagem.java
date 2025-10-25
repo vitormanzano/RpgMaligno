@@ -80,11 +80,11 @@ public abstract class Personagem {
 
     @Override
     public String toString() {
-        return "Nome: " + this.nome + "\n" +
-                "Nível: " + this.nivel + "\n" +
-                "HP: " + this.pontosVida + "\n" +
-                "Ataque: " + this.ataque + "\n" +
-                "Defesa: " + this.defesa + "\n";
+        return "Nome: " + this.nome + "| " +
+                " Nível: " + this.nivel + "|" +
+                " HP: " + this.pontosVida + "|" +
+                " Ataque: " + this.ataque + "|" +
+                " Defesa: " + this.defesa + "|";
     }
 
     @Override
