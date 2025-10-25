@@ -25,13 +25,21 @@ public class Item implements Cloneable {
         return this.quantidade;
     }
 
+    public boolean verificarSeItemEhIgual(Item item) {
+        if (!this.nome.equals(item.nome) ||
+                !this.descricao.equals(item.descricao) ||
+                !this.efeito.equals(item.efeito) ||
+                this.quantidade != item.quantidade) return false;
+        return true;
+    }
+
     @Override
     public String toString()
     {
         return "Nome: " + this.nome +
-                " Descrição: " + this.descricao +
-                " Efeito: " + this.efeito +
-                " Quantidade: " + this.quantidade;
+                "\nDescrição: " + this.descricao +
+                "\nEfeito: " + this.efeito +
+                "\nQuantidade: " + this.quantidade;
     }
 
     @Override
@@ -41,10 +49,7 @@ public class Item implements Cloneable {
         if (this.getClass() != obj.getClass()) return false;
 
         Item other = (Item) obj;
-        if (!this.nome.equals(other.nome) ||
-        !this.descricao.equals(other.descricao) ||
-        !this.efeito.equals(other.efeito) ||
-        this.quantidade != other.quantidade) return false;
+        if (!this.verificarSeItemEhIgual(other)) return false;
 
         return true;
     }

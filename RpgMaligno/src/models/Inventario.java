@@ -43,7 +43,7 @@ public class Inventario implements Cloneable {
 
     private Item verificarSeItemJaExisteNoInventario(Item item) {
         for (Item currentItem : itens) {
-            if (currentItem.equals(item))
+            if (currentItem.verificarSeItemEhIgual(item))
                 return currentItem;
         }
         return null;
@@ -51,10 +51,10 @@ public class Inventario implements Cloneable {
 
     @Override
     public String toString() {
-        for (Item item : itens) {
-            if (item == null)
+        for (int i = 0; i < itens.size(); i++) {
+            if (itens.get(i) == null)
                 continue;
-            System.out.println(item);
+            System.out.println("Item " + (i+1) + ": " + itens.get(i).toString() + "");
         }
         return "";
     }
