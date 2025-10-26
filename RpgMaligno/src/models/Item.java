@@ -83,6 +83,6 @@ public Item(String nome, String descricao, String efeito, byte quantidade) {
 
     @Override
     public int compareTo(Item i) {
-        return this.nome.compareTo(i.nome);
+        return this.nome.compareToIgnoreCase(i.nome);
     }
 }

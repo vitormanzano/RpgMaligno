@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Inventario implements Cloneable {
@@ -25,6 +26,8 @@ public class Inventario implements Cloneable {
         else {
             itemDoInventario.aumentarQuantidade(); // Se já existir, aumento a quantidade
         }
+        Collections.sort(this.itens);
+
     }
 
     public void removerItem(Item item, byte quantidade) throws Exception {
