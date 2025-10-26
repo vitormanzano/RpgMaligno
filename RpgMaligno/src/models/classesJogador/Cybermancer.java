@@ -14,8 +14,8 @@ public class Cybermancer extends Personagem {
         super(nome, pontosVida, ataque, defesa, nivel, inventario);
     }
 
-    public Cybermancer(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel) throws Exception {
-        super(nome, pontosVida, ataque, defesa, nivel, criarInventario());
+    public Cybermancer(String nome) throws Exception {
+        super(nome, (byte)50, (byte)40, (byte)20, (byte)1, criarInventario());
     }
 
     public Cybermancer(Cybermancer modelo) throws Exception {

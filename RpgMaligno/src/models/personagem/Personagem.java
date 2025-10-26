@@ -11,6 +11,7 @@ public abstract class Personagem {
 
     public Personagem(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
         this.nome = nome;
+        this.pontosVida = pontosVida;
         this.ataque = ataque;
         this.defesa = defesa;
         this.nivel = nivel;

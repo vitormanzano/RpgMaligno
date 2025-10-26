@@ -17,8 +17,8 @@ public class Bladerunner extends Personagem {
         super(nome, pontosVida, ataque, defesa, nivel, inventario);
     }
 
-    public Bladerunner(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel) throws Exception {
-        super(nome, pontosVida, ataque, defesa, nivel, criarInventario());
+    public Bladerunner(String nome) throws Exception {
+        super(nome, (byte)75, (byte)30, (byte)30, (byte)1, criarInventario());
     }
 
     public Bladerunner(Bladerunner modelo) throws Exception {

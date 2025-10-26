@@ -14,8 +14,8 @@ public class Panzer extends Personagem {
         super(nome, pontosVida, ataque, defesa, nivel, inventario);
     }
 
-    public Panzer(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel) throws Exception {
-        super(nome, pontosVida, ataque, defesa, nivel, criarInventario());
+    public Panzer(String nome) throws Exception {
+        super(nome, (byte)100, (byte)20, (byte)50, (byte)1, criarInventario());
     }
 
     public Panzer(Panzer modelo) throws Exception {
