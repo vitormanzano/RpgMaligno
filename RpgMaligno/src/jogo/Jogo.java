@@ -1,5 +1,6 @@
 package jogo;
 
+import models.Inimigo;
 import models.classesJogador.Bladerunner;
 import models.classesJogador.Cybermancer;
 import models.classesJogador.Panzer;
@@ -12,6 +13,7 @@ public class Jogo {
     static Scanner scanner = new Scanner(System.in);
 
     private byte atoAtual;
+    private static Personagem personagem;
 
 
     public static void iniciarJogo() 
@@ -91,5 +93,44 @@ public class Jogo {
         for(int i = 0; i < 100; i++){
             System.out.println();
         }
+    }
+
+    public static void combate(Inimigo inimigo) {
+        int input;
+
+        do {
+            clearConsole();
+            String opcao = scanner.nextLine();
+
+            switch (opcao) {
+                case "1" -> {
+                    byte dano = inimigo.atacarInimigo();
+                    personagem.recebeuAtaque(dano);
+                    if (!inimigo.estaVivo()) break;
+
+                    dano = personagem.atacarInimigo();
+                    inimigo.recebeuAtaque(dano);
+                    if (!personagem.estaVivo()) break;
+                }
+                case "2" -> {
+
+                }
+
+                default -> {
+
+                }
+            }
+        }while (personagem.estaVivo() && inimigo.estaVivo());
+    }
+
+    private static String escolherAcaoNoCombate() {
+        System.out.println("Escolha sua ação!");
+
+        System.out.println("1 - Lutar");
+        System.out.println("2 - Usar item");
+        System.out.println("3 - Fugir");
+
+        System.out.print("Opção: ");
+
     }
 }
