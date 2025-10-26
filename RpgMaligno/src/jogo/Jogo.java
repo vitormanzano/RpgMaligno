@@ -87,10 +87,9 @@ public class Jogo {
         scanner.nextLine();
     }
 
-    public static void clearConsole() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+    public static void clearConsole(){
+        for(int i = 0; i < 100; i++){
+            System.out.println();
+        }
     }
-
-
 }
