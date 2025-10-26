@@ -71,7 +71,7 @@ public abstract class Personagem {
     }
 
     public void recebeuAtaque(byte danoAtaque) {
-        this.pontosVida = (byte)(this.pontosVida - (danoAtaque - this.defesa));
+        this.pontosVida = (byte)(this.pontosVida - (this.defesa - danoAtaque));
     }
 
     public byte atacarInimigo() {
@@ -82,7 +82,6 @@ public abstract class Personagem {
     private byte rolarDado() {
         return (byte)(Math.random() * 20 + 1);
     }
-
 
     @Override
     public String toString() {
