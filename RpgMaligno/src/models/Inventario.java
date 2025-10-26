@@ -1,14 +1,17 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Inventario implements Cloneable {
-    public List<Item> itens;
+    public List<Item> itens = new ArrayList<>();
     private final byte QUANTIDADE_MAXIMA_DE_ITENS = 10;
 
     public Inventario(List<Item> itens) {
         this.itens = itens;
     }
+
+    public Inventario() { }
 
     public void adicionarItem(Item item) throws Exception {
         byte quantidadeTotal = getQuantidadeDeItens();
