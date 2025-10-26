@@ -5,6 +5,4 @@ public class Main {
         Jogo.iniciarJogo();
         Jogo.iniciarIntroducao();
     }
-
-    
 }
