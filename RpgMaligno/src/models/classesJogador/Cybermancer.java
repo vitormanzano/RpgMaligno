@@ -27,7 +27,7 @@ public class Cybermancer extends Personagem implements Cloneable {
         this.setAtaque(modelo.getAtaque());
         this.setDefesa(modelo.getDefesa());
         this.setNivel(modelo.getNivel());
-        this.setInventario(modelo.getInventario());
+        this.setInventario(new Inventario(modelo.getInventario()));
     }
 
     private static Inventario criarInventario() throws Exception {
