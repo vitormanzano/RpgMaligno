@@ -2,11 +2,10 @@ package models.classesJogador;
 
 import Itens.Firewall;
 import Itens.Nanogel;
-import Itens.Trojan;
 import models.Inventario;
 import models.personagem.Personagem;
 
-public class Panzer extends Personagem {
+public class Panzer extends Personagem implements Cloneable {
 
     public Panzer() { }
 
@@ -35,5 +34,15 @@ public class Panzer extends Personagem {
         inv.adicionarItem(new Firewall());
         inv.adicionarItem(new Nanogel((byte) 3));
         return inv;
+    }
+
+    @Override
+    public Object clone() {
+        Panzer ret = null;
+        try {
+            ret = new Panzer(this);
+        }
+        catch (Exception e) { }
+        return ret;
     }
 }

@@ -3,13 +3,9 @@ package models.classesJogador;
 import Itens.Disassembler;
 import Itens.Nanogel;
 import models.Inventario;
-import models.Item;
 import models.personagem.Personagem;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Bladerunner extends Personagem {
+public class Bladerunner extends Personagem implements Cloneable {
 
     public Bladerunner() { }
 
@@ -38,6 +34,16 @@ public class Bladerunner extends Personagem {
         inv.adicionarItem(new Disassembler());
         inv.adicionarItem(new Nanogel((byte) 3));
         return inv;
+    }
+
+    @Override
+    public Object clone() {
+        Bladerunner ret = null;
+        try {
+            ret = new Bladerunner(this);
+        }
+        catch (Exception e) { }
+        return ret;
     }
 }
 

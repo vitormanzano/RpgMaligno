@@ -6,7 +6,7 @@ import Itens.Trojan;
 import models.Inventario;
 import models.personagem.Personagem;
 
-public class Cybermancer extends Personagem {
+public class Cybermancer extends Personagem implements Cloneable {
 
     public Cybermancer() { }
 
@@ -35,5 +35,15 @@ public class Cybermancer extends Personagem {
         inv.adicionarItem(new Trojan());
         inv.adicionarItem(new Nanogel((byte) 3));
         return inv;
+    }
+
+    @Override
+    public Object clone() {
+        Cybermancer ret = null;
+        try {
+            ret = new Cybermancer(this);
+        }
+        catch (Exception e) { }
+        return ret;
     }
 }

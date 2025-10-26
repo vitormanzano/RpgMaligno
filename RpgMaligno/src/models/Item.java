@@ -1,12 +1,12 @@
 package models;
 
-public class Item implements Cloneable {
+public class Item implements Cloneable, Comparable<Item> {
     private String nome;
     private String descricao;
     private String efeito;
     private byte quantidade;
 
-    public Item(String nome, String descricao, String efeito, byte quantidade) {
+public Item(String nome, String descricao, String efeito, byte quantidade) {
         this.nome = nome;
         this.descricao = descricao;
         this.efeito = efeito;
@@ -79,5 +79,10 @@ public class Item implements Cloneable {
         }
         catch (Exception e) { }
         return ret;
+    }
+
+    @Override
+    public int compareTo(Item i) {
+        return this.nome.compareTo(i.nome);
     }
 }
