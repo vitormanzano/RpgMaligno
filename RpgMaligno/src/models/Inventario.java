@@ -44,7 +44,7 @@ public class Inventario implements Cloneable {
     }
 
     public void listarItens() {
-
+        System.out.println(this);
     }
 
     public byte getQuantidadeDeItens() {
