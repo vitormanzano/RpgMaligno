@@ -71,12 +71,17 @@ public abstract class Personagem {
     }
 
     public void recebeuAtaque(byte danoAtaque) {
-        // TODO implementar como o ataque vai causar dano, como a defesa vai funcionar.
+        this.pontosVida = (byte)(this.pontosVida - (danoAtaque - this.defesa));
     }
 
-//    public byte atacarInimigo() {
-//
-//  }
+    public byte atacarInimigo() {
+        byte valorDado = rolarDado();
+        return (byte)((valorDado + ataque));
+    }
+
+    private byte rolarDado() {
+        return (byte)(Math.random() * 20 + 1);
+    }
 
 
     @Override
