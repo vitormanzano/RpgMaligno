@@ -1,27 +1,26 @@
 package jogo;
 
 import Itens.ModuloCamuflagem;
+import Itens.Nanogel;
+import Itens.NucleoInstavel;
 import models.Inimigo;
 import models.Inimigos.Guarda;
 import models.Inimigos.GuardaDanificado;
 import models.Inimigos.Marginal;
 import models.Inventario;
+import models.Item;
 import models.classesJogador.Bladerunner;
 import models.classesJogador.Cybermancer;
 import models.classesJogador.Panzer;
 import models.personagem.Personagem;
-
-import java.io.Console;
 import java.util.Scanner;
-
 import static jogo.Historia.*;
 
 public class Jogo {
     static Scanner scanner = new Scanner(System.in);
 
-    private byte atoAtual;
+    private static byte atoAtual;
     private static Personagem personagem;
-
 
     public static void iniciarJogo() throws Exception {
         System.out.println(" Bem-vindo ao");
@@ -57,7 +56,6 @@ public class Jogo {
 
             System.out.print("Opção: ");
             String opcao = scanner.nextLine();
-
             Jogo.clearConsole();
 
             System.out.print("Digite seu nome: ");
@@ -79,6 +77,7 @@ public class Jogo {
     }
 
     public static void aceitarTrampo() throws Exception {
+        atoAtual = 1;
         while (true) {
             System.out.println("\n=== ACEITAR TRABALHO ===");
             System.out.println("1 - Aceitar");
@@ -87,7 +86,6 @@ public class Jogo {
 
             System.out.print("Opção: ");
             String opcao = scanner.nextLine();
-
             Jogo.clearConsole();
 
             Jogo.clearConsole();
@@ -147,10 +145,8 @@ public class Jogo {
 
             System.out.print("Opção: ");
             String opcao = scanner.nextLine();
-
             Jogo.clearConsole();
 
-            Jogo.clearConsole();
             switch (opcao) {
                 case "1" -> {
                     Historia.falaBeco1();
@@ -221,10 +217,8 @@ public class Jogo {
 
             System.out.print("Opção: ");
             String opcao = scanner.nextLine();
-
             Jogo.clearConsole();
 
-            Jogo.clearConsole();
             switch (opcao) {
                 case "1" -> {
 
@@ -239,7 +233,7 @@ public class Jogo {
                     System.out.println("Saindo do menu...");
                     return;
                 }
-                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+                default -> System.out.println("Opção inválida! Tente novamente.");
             }
             break;
         }
@@ -262,14 +256,15 @@ public class Jogo {
 
             switch (opcao) {
                 case "1" -> {
-                    System.out.println("✅ Classe escolhida com sucesso!");
+                    Jogo.personagem = personagem;
+                    System.out.println("Classe escolhida com sucesso!");
                     return;
                 }
                 case "2" -> {
                     System.out.println("↩ Voltando para o menu de seleção...");
                     return;
                 }
-                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+                default -> System.out.println("Opção inválida! Tente novamente.");
             }
         }
     }
@@ -304,6 +299,7 @@ public class Jogo {
     public static void combate(Inimigo inimigo) {
 
         do {
+            escolherAcaoNoCombate();
             clearConsole();
             String opcao = scanner.nextLine();
 
@@ -315,17 +311,32 @@ public class Jogo {
 
                     dano = personagem.atacarInimigo();
                     inimigo.recebeuAtaque(dano);
-                    if (!personagem.estaVivo()) break;
+                    if (!personagem.estaVivo());
                 }
                 case "2" -> {
-
+                    usarItem(personagem, inimigo);
+                }
+                case "3" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
                 }
 
                 default -> {
-
+                    System.out.println("Escolha um número válido!");
                 }
             }
-        }while (personagem.estaVivo() && inimigo.estaVivo());
+        } while (personagem.estaVivo() && inimigo.estaVivo());
+    }
+
+    public static void usarItem(Personagem personagem, Inimigo inimigo) {
+        escolherItem(personagem, inimigo);
+    }
+
+    private static void aplicarEfeitosItem(Item item, Personagem personagem, Inimigo inimigo) {
+        if (item.getClass() == Nanogel.class)
+            personagem.setPontosVida((byte) (personagem.getPontosVida() + 15));
+        if (item.getClass() == NucleoInstavel.class)
+            inimigo.setPontosVida((byte) (inimigo.getPontosVida() - 100));
     }
 
     private static void escolherAcaoNoCombate() {
@@ -336,6 +347,24 @@ public class Jogo {
         System.out.println("3 - Fugir");
 
         System.out.print("Opção: ");
+    }
 
+    private static void escolherItem(Personagem personagem, Inimigo inimigo) {
+        System.out.println("Escolha o item que deseja usar!");
+        personagem.getInventario().listarItens();
+
+        System.out.print("Número do item: ");
+        String opcao = scanner.nextLine();
+
+        try {
+            int index = Integer.parseInt(opcao);
+            Item item = personagem.getInventario().getItem(index);
+            aplicarEfeitosItem(item, personagem, inimigo);
+
+            personagem.getInventario().removerItem(item);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

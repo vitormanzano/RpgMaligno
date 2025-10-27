@@ -30,19 +30,15 @@ public class Inventario implements Cloneable {
 
     }
 
-    public void removerItem(Item item, byte quantidade) throws Exception {
+    public void removerItem(Item item) throws Exception {
         byte quantidadeTotal = getQuantidadeDeItens();
-
-        if (quantidade > quantidadeTotal)
-            throw new Exception("Não há itens suficientes para remover!");
 
         if (quantidadeTotal == 0)
             throw new Exception("Não há itens para remover!");
+
         Item itemInventario = verificarSeItemJaExisteNoInventario(item);
 
-        for (int i = 0; i < quantidade; i++) {
-            if (itemInventario == null)
-                return;
+        if (itemInventario != null) {
             itemInventario.diminuirQuantidade();
             if (itemInventario.getQuantidade() == 0)
                 itens.remove(itemInventario);
@@ -69,6 +65,10 @@ public class Inventario implements Cloneable {
                 return currentItem;
         }
         return null;
+    }
+
+    public Item getItem(int index) {
+        return itens.get(index);
     }
 
     @Override

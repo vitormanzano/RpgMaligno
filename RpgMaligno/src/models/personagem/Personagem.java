@@ -79,7 +79,7 @@ public abstract class Personagem {
         return (byte)((valorDado + ataque));
     }
 
-    private byte rolarDado() {
+    public byte rolarDado() {
         return (byte)(Math.random() * 20 + 1);
     }
 
