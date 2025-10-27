@@ -4,9 +4,7 @@ import Itens.ModuloCamuflagem;
 import Itens.Nanogel;
 import Itens.NucleoInstavel;
 import models.Inimigo;
-import models.Inimigos.Guarda;
-import models.Inimigos.GuardaDanificado;
-import models.Inimigos.Marginal;
+import models.Inimigos.*;
 import models.Inventario;
 import models.Item;
 import models.classesJogador.Bladerunner;
@@ -15,6 +13,7 @@ import models.classesJogador.Panzer;
 import models.personagem.Personagem;
 import java.util.Scanner;
 import static jogo.Historia.*;
+import java.util.Scanner;
 
 public class Jogo {
     static Scanner scanner = new Scanner(System.in);
@@ -40,6 +39,7 @@ public class Jogo {
         printPreArmazem();
         escolhaArmazem();
         printAto2();
+        escolhaAto2();
     }
 
     public static void iniciarIntroducao(){
@@ -184,8 +184,15 @@ public class Jogo {
             switch (opcao) {
                 case "1" -> {
                     Historia.printOpt1Start();
-                    //ROLAR O DADO, SE FALHAR O HACKEAMENTO, COMBATE, SE NÃO, O PLAYER ENTRA DE BOA
-                    combate(new Guarda());
+                    if (Personagem.rolarDado()>=10){
+                        printFalhaHack();
+                        combate(new Guarda());
+                        printOpt1End();
+                    }
+                    else{
+                        printSucessoHack();
+                        escolhaOpt1();
+                    }
                 }
                 case "2" -> {
                     Historia.printOpt2Start();
@@ -197,6 +204,45 @@ public class Jogo {
                     combate(new GuardaDanificado());
                     Historia.printOpt3End();
                 }
+                case "0" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
+                }
+                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+            }
+            break;
+        }
+    }
+
+    public static void escolhaOpt1() throws Exception {
+        while (true) {
+            System.out.println("\n=== O que você faz? ===");
+            System.out.println("1 - “Procurar outra entrada");
+            System.out.println("2 - “Tentar hackear o painel do portão");
+            System.out.println("0 - Sair");
+
+            System.out.print("Opção: ");
+            String opcao = scanner.nextLine();
+            Jogo.clearConsole();
+
+            switch (opcao) {
+                case "1" -> {
+                    Historia.printOpt3Start();
+                    combate(new GuardaDanificado());
+                    Historia.printOpt3End();
+                }
+                case "2" -> {
+                    Historia.printOpt1Start();
+                    if (Personagem.rolarDado()>=10){
+                        printFalhaHack();
+                        combate(new Guarda());
+                        printHack2();
+                    }
+                    else{
+                        printSucessoHack2();
+                    }
+                }
+
                 case "0" -> {
                     System.out.println("Saindo do menu...");
                     return;
@@ -221,12 +267,56 @@ public class Jogo {
 
             switch (opcao) {
                 case "1" -> {
-
+                    Historia.printCorredor1();
+                    combate(new Drone());
+                    Historia.printCorredor2();
+                    new MiniWordle();
                 }
                 case "2" -> {
+                    Historia.printPassarelas();
+                    if (Personagem.rolarDado()>=10){
+                        printFalhaHack();
+                        combate(new Drone());
+                        printHack2();
+                    }
+                    else{
+                        printSucessoStealth();
+
+                    }
 
                 }
                 case "3" -> {
+                    Historia.printEscritorio();
+                }
+                case "0" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
+                }
+                default -> System.out.println("Opção inválida! Tente novamente.");
+            }
+            break;
+        }
+    }
+
+    public static void escolhaEscritorio() throws Exception {
+        while (true) {
+            System.out.println("\n=== O que você faz? ===");
+            System.out.println("1 - “Partir pra cima.");
+            System.out.println("2 - “Usar núcleo instável.");
+            System.out.println("0 - Sair");
+
+            System.out.print("Opção: ");
+            String opcao = scanner.nextLine();
+            Jogo.clearConsole();
+
+            switch (opcao) {
+                case "1" -> {
+                    Historia.printLuta();
+                    combate(new ChromeSkull());
+                    Historia.printLutaEnd();
+                }
+                case "2" -> {
+                    Historia.printPEM();
 
                 }
                 case "0" -> {
@@ -236,6 +326,86 @@ public class Jogo {
                 default -> System.out.println("Opção inválida! Tente novamente.");
             }
             break;
+        }
+    }
+
+    public static class MiniWordle {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            String senha = "6769";
+            int tentativas = 6;
+
+            System.out.println("=== PUZZLE: ADIVINHE A SENHA ===");
+            System.out.println("A senha tem " + senha.length() + " números");
+            System.out.println("Você tem 6 chances para acertar.");
+            System.out.println("X = Dígito não existe na senha.");
+            System.out.println("⚠ = Dígito correto, porém no lugar errado.");
+            System.out.println("✔ = Dígito correto no lugar correto.");
+
+            while (tentativas > 0) {
+                System.out.print("\nDigite sua tentativa: ");
+                String tentativa = sc.nextLine().toUpperCase();
+
+                if (tentativa.length() != senha.length()) {
+                    System.out.println("A senha deve ter " + senha.length() + " números");
+                    continue;
+                }
+
+                // Mostrar resultado
+                StringBuilder resultado = new StringBuilder();
+                boolean[] usadas = new boolean[senha.length()];
+
+                // Primeira passada: letras certas
+                for (int i = 0; i < senha.length(); i++) {
+                    if (tentativa.charAt(i) == senha.charAt(i)) {
+                        resultado.append("✔ ");
+                        usadas[i] = true;
+                    } else {
+                        resultado.append("_ ");
+                    }
+                }
+
+                // Segunda passada: letras certas no lugar errado
+                for (int i = 0; i < tentativa.length(); i++) {
+                    if (tentativa.charAt(i) != senha.charAt(i)) {
+                        boolean achou = false;
+                        for (int j = 0; j < senha.length(); j++) {
+                            if (!usadas[j] && tentativa.charAt(i) == senha.charAt(j)) {
+                                achou = true;
+                                usadas[j] = true;
+                                break;
+                            }
+                        }
+                        if (achou) resultado.setCharAt(i * 2, '⚠');
+                        else resultado.setCharAt(i * 2, 'X');
+                    }
+                }
+
+                System.out.println(resultado.toString());
+
+                if (tentativa.equals(senha)) {
+                    System.out.println("\n Senha aceita. Cofre abrindo.");
+                    break;
+                }
+
+                tentativas--;
+                System.out.println("Tentativas restantes: " + tentativas);
+            }
+
+            if (tentativas == 0) {
+                System.out.println("\nSenha não aceita. Tentativa de invasão detectada.");
+                printWithDelay("O som ensurdecedor do alarme soa.",35);
+                pressAnythingToContinue();
+                printWithDelay("Você se vê cercado por um grande número de drones e guardas, prontos para te eliminar.",35);
+                pressAnythingToContinue();
+                printWithDelay("Eles abrem fogo. Você morre.",35);
+                pressAnythingToContinue();
+                printMorte();
+                System.exit(0);
+            }
+
+            sc.close();
         }
     }
 
@@ -300,7 +470,6 @@ public class Jogo {
 
         do {
             escolherAcaoNoCombate();
-            clearConsole();
             String opcao = scanner.nextLine();
 
             switch (opcao) {
@@ -326,6 +495,13 @@ public class Jogo {
                 }
             }
         } while (personagem.estaVivo() && inimigo.estaVivo());
+
+        if (!personagem.estaVivo())
+            printMorte();
+        else {
+            inimigo.getInventario().listarItens();
+
+        }
     }
 
     public static void usarItem(Personagem personagem, Inimigo inimigo) {

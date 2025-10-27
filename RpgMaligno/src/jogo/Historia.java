@@ -188,12 +188,47 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         printWithDelay("Linhas de código se espalham como veias de luz azul.",35);
         Jogo.pressAnythingToContinue();
-    }
-    //FAZER TEXTO DA ROLAGEM DE DADOS, QUERO FAZER COM VOCE ISSO VITOR PRA N TER PERIGO DE DAR PROBLEMA
-    public static void printOpt1End(){
-        printWithDelay("",35);
+        printWithDelay("Teste de dado - Tentativa de hack.",35);
         Jogo.pressAnythingToContinue();
-        printWithDelay("",35);
+    }
+    public static void printSucessoHack(){
+        printWithDelay("O painel do portão faz um bipe, “Acesso autorizado“ ",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("O portão abre silenciosamente. Você consegue entrar na Zona Industrial Monolith.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você anda cautelosamente até o portão de entrada do armazém, porém, percebe que ele está trancado e você não tem nenhum cartão de acesso.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Suas opções são procurar outra entrada ou tentar hackear o painel desse portão também“ ",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printSucessoHack2(){
+        printWithDelay("O painel do portão faz um bipe, “Acesso autorizado“ ",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("O portão abre silenciosamente. Você consegue entrar no armazém da Monolith.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("O portão se fecha atrás de você com um estalo metálico.",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printOpt1End(){
+        printWithDelay("Após derrotar o guarda, você avança cautelosamente, sem encontrar mais nenhum guarda",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Ao chegar no portão principal do armazém, você usa o cartão de acesso que pegou do guarda mais cedo",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printFalhaHack(){
+        printWithDelay("O painel do portão explode e faz muito barulho.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você sente o coração acelerar.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Das sombras de um container próximo, surgem dois olhos vermelhos de um Guarda Cibernético.",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printHack2(){
+        printWithDelay("O painel do portão explode e faz muito barulho.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Hoje não é seu dia de sorte mesmo...",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você ouve o som de passos pesados atrás de você, é um Guarda Cibernético.",35);
         Jogo.pressAnythingToContinue();
     }
 
@@ -268,12 +303,18 @@ public class Historia {
         Jogo.pressAnythingToContinue();
     }
 
-    public static void printCorredor(){
+    public static void printCorredor1(){
         printWithDelay("Você decide seguir o caminho mais rápido — e mais arriscado.",35);
         Jogo.pressAnythingToContinue();
         printWithDelay("O chão metálico ecoa sob suas botas, e logo o zumbido das hélices dos drones responde de volta.",35);
         Jogo.pressAnythingToContinue();
         printWithDelay("Três drones-sentinelas flutuam de trás das caixas, seus sensores ópticos brilhando em vermelho.",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printCorredor2(){
+        printWithDelay("Você encontra o container marcado com o selo da Monolith, trancado com senha.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você tem 6 tentativas para acertar o código de quatro números.",35);
         Jogo.pressAnythingToContinue();
     }
 
@@ -284,21 +325,46 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         printWithDelay("Você avança agachado, pisando com cuidado.",35);
         Jogo.pressAnythingToContinue();
-        //TESTE DE DADO, STEALTH PODE FALHAR (COMBATE COM ENXAME DE DRONES) OU DAR SUCESSO (CHEGA AO ESCRITÓRIO)
+        printWithDelay("Teste de dado - furtividade.",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printFalhaStealth(){
+
+    }
+    public static void printSucessoStealth(){
+        printWithDelay("Você evita os drones e chega até o escritório de vigilância, onde encontra um membro da ChromeSkull.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Ele ainda não te viu, mas você precisa lidar com ele.",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printPEM(){
+        printWithDelay("Você abre a porta e rapidamente lança o núcleo instável no inimigo com toda sua força.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Uma explosão de energia ocorre. O cérebro do inimigo frita, ele cai duro no chão.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Uma explosão de energia ocorre. O cérebro do inimigo frita, ele cai duro no chão.",35);
+        Jogo.pressAnythingToContinue();
+        printLutaEnd();
+    }
+    public static void printLuta(){
+        printWithDelay("Você abre a porta e rapidamente e parte pra cima do inimigo.",35);
+        Jogo.pressAnythingToContinue();
+    }
+    public static void printLutaEnd(){
+        printWithDelay("Após derrotar o gangster, você olha os monitores das câmeras do armazém.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você localiza um container com TOP SECRET escrito do lado. Você achou a carga.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Agora que sabe exatamente onde ir, você avança com cuidado pelos caminhos estreitos do armazém em direção à carga.",35);
+        Jogo.pressAnythingToContinue();
     }
 
     public static void printEscritorio(){
-        printWithDelay("Você ignora o setor principal e sobe por uma escada lateral até uma sala de controle.",35);
+        printWithDelay("Um membro armado da gangue ChromeSkulls também invadiu.",35);
         Jogo.pressAnythingToContinue();
-        printWithDelay("As telas piscam, mostrando partes do armazém — e algo mais.",35);
+        printWithDelay("Ele está vasculhando a área, procurando exatamente o mesmo container que você.",35);
         Jogo.pressAnythingToContinue();
-        printWithDelay("Há movimento humano no Setor C-9.",35);
-        Jogo.pressAnythingToContinue();
-        printWithDelay("Um grupo armado da gangue ChromeSkulls também invadiu.",35);
-        Jogo.pressAnythingToContinue();
-        printWithDelay("Eles estão vasculhando a área, procurando exatamente o mesmo container que você.",35);
-        Jogo.pressAnythingToContinue();
-        printWithDelay("Você ouve um deles dizer:",35);
+        printWithDelay("Você ouve ele conversando no comunicador:",35);
         Jogo.pressAnythingToContinue();
         printWithDelay("“Você viu aquele cara nas câmeras? Bem que o Falco falou que ia facilitar pra gente, mandou até uma distração hahaha”",35);
         Jogo.pressAnythingToContinue();
@@ -307,13 +373,12 @@ public class Historia {
         printWithDelay(" Falco pode ter te mandado pra morrer — uma simples distração.",35);
         Jogo.pressAnythingToContinue();
         //Escolhas:
-        //Enfrentar a gangue (Combate direto — 3 ChromeSkulls Lv 2, Loot: Nanogel, Arma de Plasma, Chip de Acesso)
+        //Enfrentar a gangue (Combate direto — ChromeSkulls Lv 2, Loot: Nanogel, Chip de Acesso)
         //
         //
         //Evitar confronto e fugir com a carga (Teste de furtividade— dado)
 
     }
-
 
     public static void printMorte(){
         System.out.println("  ________                        ________                     \n" +
