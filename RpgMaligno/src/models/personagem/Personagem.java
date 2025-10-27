@@ -80,7 +80,25 @@ public abstract class Personagem {
     }
 
     public static byte rolarDado() {
-        return (byte)(Math.random() * 20 + 1);
+        System.out.print("🎲 Rolando o dado");
+        for (int i = 0; i < 3; i++) {
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            System.out.print(".");
+        }
+        byte resultado = (byte)(Math.random() * 20 + 1);
+
+        try {
+            Thread.sleep(600);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("\n➡ Você tirou: " + resultado);
+        return resultado;
     }
 
     @Override

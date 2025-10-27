@@ -1,5 +1,6 @@
 package models.Inimigos;
 
+import Itens.NanogelPrime;
 import models.Inimigo;
 import models.Inventario;
 
@@ -16,6 +17,7 @@ public class ChromeSkull extends Inimigo {
     }
     private static Inventario criarInventario() throws Exception {
         Inventario inv = new Inventario();
+        inv.adicionarItem(new NanogelPrime());
         return inv;
     }
 }

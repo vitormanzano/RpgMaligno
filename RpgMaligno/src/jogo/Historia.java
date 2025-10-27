@@ -1,7 +1,9 @@
 package jogo;
 
+import models.Inimigos.Falco;
 import models.personagem.Personagem;
 
+import static jogo.Jogo.combate;
 import static jogo.Jogo.printWithDelay;
 
 public class Historia {
@@ -10,7 +12,7 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         printWithDelay("Os ricos vivem acima das nuvens. O resto... luta para não morrer de fome no nível da rua. Você nasceu nesse resto",35);
         Jogo.pressAnythingToContinue();
-        printWithDelay("Sua mãe era socorrista, uma das poucas que ainda acreditavam em salvar vidas. Corria de ambulância pelos becos e zonas de guerra, tentando remendar o que sobrava da humanidade. Mas a verdade é que salvar pessoas não paga as contas.",35);
+        printWithDelay("Sua mãe era socorrista, uma das poucas que ainda acreditavam em salvar vidas. Corria de ambulância pelos becos, tentando remendar o que sobrava da humanidade. Mas a verdade é que salvar pessoas não paga as contas.",35);
         Jogo.pressAnythingToContinue();
         printWithDelay("Então, quando ninguém olhava, ela fazia o que precisava: roubava implantes, próteses e chips de valor dos corpos dos mortos. Contrabando sujo, mas necessário pra manter você vivo.",35);
         Jogo.pressAnythingToContinue();
@@ -29,7 +31,7 @@ public class Historia {
 
     public static void printClasses() {
         System.out.println("---------------------------------------------------------------");
-        printWithDelay("Espada Desassembler\n\n" +
+        printWithDelay("Espada Disassembler\n\n" +
                 "Lâmina gravitônica capaz de distorcer o espaço em volta do alvo.\n" +
                 "Cortes tão limpos que os sensores nervosos nem têm tempo de reagir.\n" +
                 "Pulso de Colapso (50% chance de puxar e esquartejar inimigos)\n\n" +
@@ -38,7 +40,7 @@ public class Historia {
                 "Ataque: 30\n" +
                 "Defesa: 30\n" +
                 "Inventário:\n" +
-                "-Espada Desassembler\n" +
+                "-Espada Disassembler\n" +
                 "-3x Nanogel (cura)\n"
         ,10);
         System.out.println("---------------------------------------------------------------");
@@ -116,6 +118,7 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         Jogo.printWithDelay("FIM — Às vezes, o verdadeiro final feliz é apenas continuar existindo.", 35);
         Jogo.pressAnythingToContinue();
+        printFim();
     }
 
     public static void aceitou(){
@@ -129,7 +132,7 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         printWithDelay("Falco envia as coordenadas: Setor 12 — Zona industrial Monolith.",35);
         Jogo.pressAnythingToContinue();
-        printWithDelay("“Vai com cuidado mano. A segurança da Monolith tá varrendo a área.",35);
+        printWithDelay("“Vai com cuidado, garoto. A segurança da Monolith tá varrendo a área.",35);
         Jogo.pressAnythingToContinue();
         printWithDelay("A transmissão se encerra, deixando só o zumbido elétrico do comunicador.",35);
         Jogo.pressAnythingToContinue();
@@ -225,8 +228,6 @@ public class Historia {
     }
     public static void printHack2(){
         printWithDelay("O painel do portão explode e faz muito barulho.",35);
-        Jogo.pressAnythingToContinue();
-        printWithDelay("Hoje não é seu dia de sorte mesmo...",35);
         Jogo.pressAnythingToContinue();
         printWithDelay("Você ouve o som de passos pesados atrás de você, é um Guarda Cibernético.",35);
         Jogo.pressAnythingToContinue();
@@ -329,7 +330,10 @@ public class Historia {
         Jogo.pressAnythingToContinue();
     }
     public static void printFalhaStealth(){
-
+        printWithDelay("Seu cadarço estava desamarrado, você tropeça e se esborracha no chão.",35);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Um drone inimigo surge imediatamente após o barulho.",35);
+        Jogo.pressAnythingToContinue();
     }
     public static void printSucessoStealth(){
         printWithDelay("Você evita os drones e chega até o escritório de vigilância, onde encontra um membro da ChromeSkull.",35);
@@ -337,10 +341,13 @@ public class Historia {
         printWithDelay("Ele ainda não te viu, mas você precisa lidar com ele.",35);
         Jogo.pressAnythingToContinue();
     }
+    public static void printFalhaStealth2(){
+        printWithDelay("Após derrotar o drone, você se recompõe, e claro, amarra seu cadarço.",35);
+        Jogo.pressAnythingToContinue();
+    }
+
     public static void printPEM(){
         printWithDelay("Você abre a porta e rapidamente lança o núcleo instável no inimigo com toda sua força.",35);
-        Jogo.pressAnythingToContinue();
-        printWithDelay("Uma explosão de energia ocorre. O cérebro do inimigo frita, ele cai duro no chão.",35);
         Jogo.pressAnythingToContinue();
         printWithDelay("Uma explosão de energia ocorre. O cérebro do inimigo frita, ele cai duro no chão.",35);
         Jogo.pressAnythingToContinue();
@@ -370,13 +377,112 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         printWithDelay("A revelação te atinge em cheio.",35);
         Jogo.pressAnythingToContinue();
-        printWithDelay(" Falco pode ter te mandado pra morrer — uma simples distração.",35);
+        printWithDelay("Falco pode ter te mandado pra morrer — uma simples distração.",35);
         Jogo.pressAnythingToContinue();
-        //Escolhas:
-        //Enfrentar a gangue (Combate direto — ChromeSkulls Lv 2, Loot: Nanogel, Chip de Acesso)
-        //
-        //
-        //Evitar confronto e fugir com a carga (Teste de furtividade— dado)
+        printWithDelay("Você precisa entrar no escritório, mas o ChromeSkull está lá dentro.",35);
+        Jogo.pressAnythingToContinue();
+    }
+
+    public static void printCarga(){
+        printWithDelay("Após decifrar a senha, a trava se abre com um estalo metálico. A porta da câmara criogênica desliza lentamente, revelando o cilindro no centro.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("A superfície prateada reflete sua silhueta. Entre etiquetas de advertência e símbolos de risco, uma inscrição chama sua atenção:",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("M.A.L.I.G.N.O. — Módulo Absoluto de Liderança e Gestão Neural Omnidirecional.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("O nome ecoa na sua mente. Não parece apenas uma carga... parece algo que deveria ter permanecido enterrado.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("O comunicador chia, quebrando o silêncio.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Bom trabalho, garoto. Estou te esperando no meu escritório, em New Vegas. Você sabe o caminho.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Uma breve pausa. Depois, a voz dele volta, mais séria:",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “E não tente abrir a carga... confie em mim.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você encara o cilindro por um momento. Agora, cada detalhe — a sigla, as advertências, o tom de Falco — parece esconder algo maior.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("A sirene distante começa a ecoar. Você segura firme o cilindro, prende-o na maleta e sai do armazém antes que cheguem.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("O motor do carro ronca. As luzes da cidade passam rápido pelo vidro enquanto você acelera em direção a New Vegas.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Mas a curiosidade te corrói. O que há dentro daquele cilindro? E por que Falco parecia... com medo?",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Voce chega ao local",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("falco espera na esquina, encostado num carro blindado, cigarro aceso, rosto escondido na penumbra",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Você demorou moleque, não esperava que fosse sair vivo dessa, superou minhas expectativas.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Voce, surpreso com a audacia, começa a discutir",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Voce: Então quer dizer que eu era uma distração? Que p**** é essa Falco, vai se f****!",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Distração? Não, moleque... você era a solução.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você: “O que tá dizendo, Falco?”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “A Monolith tava caçando o item da sua mãe. Aquele que você carrega como lembrança.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você fecha a cara. “O item dela?”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Não era só uma arma. Era um protótipo de ligação neural. Um artefato experimental da série M.A.L.I.G.N.O. – eles chamavam de peça viva.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você sente um arrepio. O metal do item vibra no seu coldre, como se tivesse te ouvido.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Sua mãe roubou aquilo achando que podia vender. Era só mais um golpe pra pagar as contas. Mas a Monolith a rastreou.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Eles foram atrás dela, não por vingança — por propriedade. Quando viram que o item não estava com ela, ficaram desesperados.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Entraram em contato com todas as pessoas influentes perguntando se alguém sabia de alguma coisa.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você aperta os punhos. O ar parece ficar mais pesado.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco solta um suspiro cansado. “Eu avisei pra ela sumir com aquilo. Ela não me ouviu. E quando te vi com o mesmo item no braço... eu percebi que o ciclo ia se repetir.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você: “Então esse trampo era o quê? Uma armadilha pra terminar o serviço que eles começaram?”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Não é pessoal, garoto. É sobrevivência. A Monolith quer o seu item, não você.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você ergue o olhar. “Mas o cilindro e o item... eles estão conectados, não estão?”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Sim. O item da sua mãe era o condutor. O cilindro... é o núcleo. Juntos, formam o Módulo Absoluto de Liderança e Gestão Neural Omnidirecional — M.A.L.I.G.N.O.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("O cilindro começa a emitir um brilho azul intenso. O item responde, vibrando no mesmo ritmo.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco dá um passo à frente, arma em punho. “Entrega isso, agora! Você não sabe o que tá fazendo!”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você: “Minha mãe morreu por causa disso. Eu não vou entregar nada. Você é um bosta Falco”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Ela morreu porque tentou brincar com deuses, garoto. E você vai morrer tentando imitar ela.”",30);
+        Jogo.pressAnythingToContinue();
+        combate(new Falco());
+    }
+
+    public static void printFinal1() {
+        printWithDelay("Falco cai ao chão, o sangue se mistura à chuva que cai sobre o asfalto.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você junta o item e o cilindro. As duas peças brilham, se conectando.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Um pulso de energia varre a cidade. Luzes piscam, torres apagam, sistemas entram em colapso.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Do núcleo, uma onda de nanobos se juntam e formam uma face. Surge uma voz fria, distorcida: “SISTEMA NEURAL REATIVADO. M.A.L.I.G.N.O. ONLINE.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Você encara o horizonte em chamas. O mundo vai acabar, mas... você não tem mais nada a perder.",30);
+        printMaligno();
+    }
+
+    public static void printFinal2() {
+        printWithDelay("Você cai de joelhos, sentindo o sangue escorrer. Falco se aproxima, sério, quase triste.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Falco: “Eu avisei, garoto. Alguns segredos não deviam ser tocados.”",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Ele recolhe o item e o cilindro, e entra no carro. O motor ronca, e ele desaparece na chuva.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Enquanto a visão escurece, você pensa em tudo... sua mãe, Falco, e o que o M.A.L.I.G.N.O. realmente era.",30);
+        Jogo.pressAnythingToContinue();
+        printWithDelay("Silêncio.",30);
+        printFim();
 
     }
 
@@ -387,6 +493,63 @@ public class Historia {
                 "\\    \\_\\  \\/ __ \\|  Y Y  \\  ___/  /    |    \\   /\\  ___/|  | \\/\n" +
                 " \\______  (____  /__|_|  /\\___  > \\_______  /\\_/  \\___  >__|   \n");
         Jogo.pressAnythingToContinue();
+
+    }
+    public static void printFim(){
+        System.out.println(" Obrigado por jogar");
+        System.out.println("                             .__           .__          __   \n" +
+                "  ____   ____  ____   ____   |  |__   ____ |__| _______/  |_ \n" +
+                " /    \\_/ __ \\/  _ \\ /    \\  |  |  \\_/ __ \\|  |/  ___/\\   __\\\n" +
+                "|   |  \\  ___(  <_> )   |  \\ |   Y  \\  ___/|  |\\___ \\  |  |  \n" +
+                "|___|  /\\___  >____/|___|  / |___|  /\\___  >__/____  > |__|  \n" +
+                "     \\/     \\/           \\/       \\/     \\/        \\/        ");
+        System.out.println("---------------------------------------------------------------");
+        Jogo.pressAnythingToContinue();
+        System.exit(0);
+
+    }
+    public static void printMaligno(){
+        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⠿⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⡟⠀⢀⡆⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠀⠅⠀⠀⠀⠀⢀⡄⠀⠀⠀⣿⣿⣿⣗⣠⣾⡇⠀⠀⠀⠀⢠⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⢸⣆⠀⠀⢰⣿⣿⣿⣿⣿⣯⠀⢀⣴⠆⠀⠻⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⣷⠀⠀⠀⠀⠀⠀⢸⣿⠀⢀⣾⣿⣿⣿⣿⣿⡿⣥⣾⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⡆⠀⠀⣀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⢹⣿⠀⠀⠀⣴⠃⠀⣠⡆⢀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⣄⠀⠀⠀⠀⠈⣿⡇⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠘⠁⠀⠀⣰⣿⠀⢰⠟⠀⣤⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢀⠁⠀⢀⣰⣿⣿⡿⠆⠈⠀⣰⣷⡄⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠘⢿⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⣧⡜⠀⣠⣿⣿⣿⣿⡿⠋⣹⣿⣿⣿⠟⢸⣿⣦⣴⣿⣿⣿⡿⠁⠀⠀⣾⣿⣿⠁⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⢀⠀⠀⢹⣿⣧⠀⠀⠀⠀⡀⢀⣾⢀⣿⣿⣿⣾⣿⣿⣿⣿⠛⠁⢠⠿⠟⠉⠁⠀⢸⣹⣿⣿⠛⠻⣯⠁⠀⠀⣀⣿⠿⠁⠀⠀⠀⣆⢹\n" +
+                "⠀⠀⠰⣄⠸⣷⡄⠀⢿⣟⠀⠀⠀⠀⣷⡀⣇⠀⣿⣿⠿⣿⠛⣿⠏⠀⠀⡄⠀⢀⣴⡾⠁⠀⣼⣿⡿⠏⠀⠐⣿⡄⠀⣰⠋⠀⠀⣺⠀⠀⠀⢹⣘\n" +
+                "⠀⠀⠠⣽⣶⡿⠇⠀⠀⢉⠀⠶⠒⠀⠘⢷⣿⣥⠈⠿⠀⠘⢆⠘⠀⢠⣿⡁⠀⣾⣿⠃⠀⣸⢿⣿⣇⣀⠀⢀⣿⡇⠀⡘⠀⠀⠸⣿⠀⠀⠀⢸⠁\n" +
+                "⠀⠀⠀⠘⠋⢀⠀⣄⠀⣆⠁⣾⣿⣧⠀⠘⣿⣿⣦⢸⣦⠀⠈⣤⣼⣿⣿⣿⣾⡿⠁⠀⠈⣠⣾⣿⣿⣿⣿⣿⣿⡇⢀⣧⠀⠲⣀⣿⡆⠀⠐⠀⠀\n" +
+                "⠀⠀⠀⠀⡶⢠⣾⡿⠷⠿⢷⣿⣿⣿⠇⠀⠋⢹⣿⣶⣿⣷⣶⣿⣿⣿⠋⠉⣿⠃⠀⢀⣾⣿⣿⣿⣿⡿⠻⠙⠿⡇⠈⣿⠁⠀⣿⠏⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⡀⠙⡁⠶⣿⡿⢒⣠⠀⡤⠀⢐⠀⠸⣿⣿⣿⣿⣿⡟⠉⢿⠀⢸⣿⡀⠀⢸⣿⣿⣿⠟⠁⠀⠀⠀⠀⢱⠀⠎⠠⠔⠁⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⣶⠀⡇⢄⠘⠲⣦⠰⠟⠉⠒⠲⡄⠀⠁⢸⣿⠟⠁⢸⠟⢣⠀⠻⡀⠘⢿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠘⡆⠀⣶⠃⣰⡆⠀⠀⠀⠀⠀\n" +
+                "⠂⠀⣿⣦⠈⠈⠛⢶⣦⠀⡸⡀⠀⠀⡸⠀⠀⠈⠁⠀⠰⠃⠀⢸⣄⠀⠘⠂⡀⢻⣿⡿⠟⠀⢤⠀⠀⠀⠀⠀⠀⢰⠗⢠⡯⢰⣿⠁⠀⠀⠀⠀⠀\n" +
+                "⠀⣼⣿⡿⠁⠀⠈⢀⣄⠀⠷⣬⣑⡨⣴⡇⣴⠀⢀⣄⣠⣤⣴⣿⣾⣷⢄⡀⠀⠈⠀⠀⠈⠓⠋⠀⠀⠀⠀⢀⣼⠏⠀⣸⡇⢨⡏⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⢫⣿⡃⠀⢰⣿⣦⣅⡀⠛⠶⠶⠶⠌⠁⠀⠀⠀⠀⠉⠉⣿⣹⣿⠉⠙⣌⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡞⠁⠀⣰⢫⡇⠈⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠈⠇⠘⠘⢿⣥⣀⠉⠛⣿⣷⣶⣿⣿⡟⢀⣴⠂⠀⠀⠀⠹⣿⣧⡀⠀⠙⢦⡀⠀⠀⢦⣄⣤⣨⣭⣤⣠⠴⠋⠀⠸⠁⠀⢦⡀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⣬⣙⡛⠓⠒⢒⢀⣤⠀⣄⠻⣿⣄⠀⠀⠀⢀⣿⣿⣽⣦⡀⠀⠀⠳⣄⡀⠀⠈⠛⠛⠛⠁⠀⡠⠞⠁⠀⠻⣦⡹⣦⡐⢄⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⣻⠟⣛⣃⣸⣿⡇⣹⣿⡷⠀⣠⠟⢻⣿⢿⠛⠋⠃⡄⠀⠈⢿⣶⣶⠦⢶⡖⠆⢁⣄⠐⢿⣷⣄⠈⠻⣌⢻⣆⠡⡀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⢋⣼⣿⣿⡿⠙⢁⣾⣿⡇⠀⠀⣠⣾⣿⠀⠀⠀⣴⠃⠀⣀⣀⡈⠉⠛⢷⣾⠀⠻⣿⣷⣄⠙⠛⣡⣄⡹⣧⠹⡇⢱\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠘⠗⣠⣌⠛⠀⠹⠿⠿⣇⠀⠀⠻⠿⠋⠀⠀⠋⠁⡔⠚⠉⣉⡋⠐⠀⠀⢟⠀⠀⠈⠻⣿⠇⣀⠈⠛⢛⣿⡗⢃⡌\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⢛⣴⣿⣿⣧⠰⣷⢰⡆⣶⢠⠀⠰⣦⣤⣤⣴⠶⠉⠀⢰⣾⣿⣿⣦⠈⠀⠀⠀⠀⠀⠀⠨⡘⢿⣿⣿⣿⣿⠇⡼⠀\n" +
+                "⠀⠀⠀⠀⢀⣀⣤⠶⢟⣫⣴⣿⣿⣿⣿⠏⠰⣤⡤⠔⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠈⠻⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠈⠒⠦⠭⠭⠥⠚⠀⠀\n" +
+                "⠀⠀⠴⠞⣛⣭⣴⣾⣿⣿⣿⣿⠿⠛⣡⢸⣷⣌⠓⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⣦⠐⣌⠻⢿⣿⣿⣷⣦⣬⣓⡒⠤⠤⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠤⣭⣭⣭⣭⣭⣭⣭⣭⠐⢶⡃⠉⠘⠿⠿⠈⡁⣠⣾⣿⣿⢿⣷⣶⣄⡙⠂⢾⣿⠀⠟⣡⣤⣍⡛⠻⢿⣿⣿⣿⡿⠶⢒⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠈⠉⠁⠀⠀⠀⠀⠈⢿⣤⣀⣀⣦⠿⠛⠉⢁⡀⠀⢀⣀⡀⠙⠹⠿⣷⣦⣤⣞⣿⣿⠟⠀⠘⠓⠲⠶⠶⠒⠋⠁⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⠋⣡⡴⢁⣴⣿⣿⣦⣶⣿⣷⣄⠀⢶⣤⣭⠍⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢁⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⠿⠟⠻⠿⠿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+        Jogo.pressAnythingToContinue();
+        System.out.println("   _____         .__  .__                       \n" +
+                "  /     \\ _____  |  | |__| ____   ____   ____   \n" +
+                " /  \\ /  \\\\__  \\ |  | |  |/ ___\\ /    \\ /  _ \\  \n" +
+                "/    Y    \\/ __ \\|  |_|  / /_/  >   |  (  <_> ) \n" +
+                "\\____|__  (____  /____/__\\___  /|___|  /\\____/  \n" +
+                "        \\/     \\/       /_____/      \\/         ");
 
     }
 }
