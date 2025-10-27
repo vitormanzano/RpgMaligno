@@ -1,6 +1,11 @@
 package jogo;
 
+import Itens.ModuloCamuflagem;
 import models.Inimigo;
+import models.Inimigos.Guarda;
+import models.Inimigos.GuardaDanificado;
+import models.Inimigos.Marginal;
+import models.Inventario;
 import models.classesJogador.Bladerunner;
 import models.classesJogador.Cybermancer;
 import models.classesJogador.Panzer;
@@ -9,6 +14,8 @@ import models.personagem.Personagem;
 import java.io.Console;
 import java.util.Scanner;
 
+import static jogo.Historia.*;
+
 public class Jogo {
     static Scanner scanner = new Scanner(System.in);
 
@@ -16,11 +23,26 @@ public class Jogo {
     private static Personagem personagem;
 
 
-    public static void iniciarJogo() 
-    {
-        System.out.println("Bem vindo ao seu Rpg maligno...");
-
+    public static void iniciarJogo() throws Exception {
+        System.out.println(" Bem-vindo ao");
+        System.out.println("                             .__           .__          __   \n" +
+                "  ____   ____  ____   ____   |  |__   ____ |__| _______/  |_ \n" +
+                " /    \\_/ __ \\/  _ \\ /    \\  |  |  \\_/ __ \\|  |/  ___/\\   __\\\n" +
+                "|   |  \\  ___(  <_> )   |  \\ |   Y  \\  ___/|  |\\___ \\  |  |  \n" +
+                "|___|  /\\___  >____/|___|  / |___|  /\\___  >__/____  > |__|  \n" +
+                "     \\/     \\/           \\/       \\/     \\/        \\/        ");
+        System.out.println("---------------------------------------------------------------");
+        iniciarIntroducao();
+        printClasses();
+        escolherClasse();
+        printAto1();
+        aceitarTrampo();
+        escolha1();
+        printPreArmazem();
+        escolhaArmazem();
+        printAto2();
     }
+
     public static void iniciarIntroducao(){
         Historia.printIntroducao();
     }
@@ -52,6 +74,174 @@ public class Jogo {
                 }
                 default -> System.out.println("❌ Opção inválida! Tente novamente.");
             }
+            break;
+        }
+    }
+
+    public static void aceitarTrampo() throws Exception {
+        while (true) {
+            System.out.println("\n=== ACEITAR TRABALHO ===");
+            System.out.println("1 - Aceitar");
+            System.out.println("2 - Rejeitar");
+            System.out.println("0 - Sair");
+
+            System.out.print("Opção: ");
+            String opcao = scanner.nextLine();
+
+            Jogo.clearConsole();
+
+            Jogo.clearConsole();
+            switch (opcao) {
+                case "1" -> Historia.aceitou();
+                case "2" -> {
+                    Historia.rejeitou();
+                    Thread.sleep(2000);
+                    System.exit(0);
+                }
+                case "0" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
+                }
+                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+            }
+            break;
+        }
+    }
+
+    public static void escolha1() throws Exception {
+        while (true) {
+            System.out.println("\n=== ESCOLHA SEU CAMINHO ===");
+            System.out.println("1 - Explorar beco");
+            System.out.println("2 - Ir para o armazém");
+            System.out.println("0 - Sair");
+
+            System.out.print("Opção: ");
+            String opcao = scanner.nextLine();
+
+            Jogo.clearConsole();
+
+            Jogo.clearConsole();
+            switch (opcao) {
+                case "1" -> {
+                    Historia.beco1();
+                    escolhaBeco();
+                }
+                case "2" -> Historia.printPreArmazem();
+
+                case "0" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
+                }
+                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+            }
+            break;
+        }
+    }
+
+    public static void escolhaBeco() throws Exception {
+        while (true) {
+            System.out.println("\n======================");
+            System.out.println("1 - “Não enche o saco”");
+            System.out.println("2 - “Pô mano, me ofereceram um trampo aí...carga da Monolith, tá sabendo de algo?”");
+            System.out.println("0 - Sair");
+
+            System.out.print("Opção: ");
+            String opcao = scanner.nextLine();
+
+            Jogo.clearConsole();
+
+            Jogo.clearConsole();
+            switch (opcao) {
+                case "1" -> {
+                    Historia.falaBeco1();
+                    combate(new Marginal());
+                }
+                case "2" -> {
+                    Historia.falaBeco2();
+                    personagem.getInventario().adicionarItem(new ModuloCamuflagem());
+                }
+
+                case "0" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
+                }
+                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+            }
+            break;
+        }
+    }
+
+    public static void escolhaArmazem() throws Exception {
+        while (true) {
+            System.out.println("\n=== Escolha como vai entrar ===");
+            System.out.println("1 - “Tentar hacker o portão");
+            System.out.println("2 - “Invadir à força");
+            System.out.println("3 - “Entrar furtivamente");
+            System.out.println("0 - Sair");
+
+            System.out.print("Opção: ");
+            String opcao = scanner.nextLine();
+
+            Jogo.clearConsole();
+
+            Jogo.clearConsole();
+            switch (opcao) {
+                case "1" -> {
+                    Historia.printOpt1Start();
+                    //ROLAR O DADO, SE FALHAR O HACKEAMENTO, COMBATE, SE NÃO, O PLAYER ENTRA DE BOA
+                    combate(new Guarda());
+                }
+                case "2" -> {
+                    Historia.printOpt2Start();
+                    combate(new Guarda());
+                    Historia.printOpt2End();
+                }
+                case "3" -> {
+                    Historia.printOpt3Start();
+                    combate(new GuardaDanificado());
+                    Historia.printOpt3End();
+                }
+                case "0" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
+                }
+                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+            }
+            break;
+        }
+    }
+
+    public static void escolhaAto2() throws Exception {
+        while (true) {
+            System.out.println("\n=== Escolha como vai chegar ao setor C-9 ===");
+            System.out.println("1 - “Seguir pelo corredor principal (rota direta)");
+            System.out.println("2 - “Subir pelas passarelas superiores (rota furtiva)");
+            System.out.println("3 - “Investigar o escritório de controle (rota investigativa)");
+            System.out.println("0 - Sair");
+
+            System.out.print("Opção: ");
+            String opcao = scanner.nextLine();
+
+            Jogo.clearConsole();
+
+            Jogo.clearConsole();
+            switch (opcao) {
+                case "1" -> {
+
+                }
+                case "2" -> {
+
+                }
+                case "3" -> {
+
+                }
+                case "0" -> {
+                    System.out.println("Saindo do menu...");
+                    return;
+                }
+                default -> System.out.println("❌ Opção inválida! Tente novamente.");
+            }
+            break;
         }
     }
 
@@ -85,8 +275,24 @@ public class Jogo {
     }
 
     public static void pressAnythingToContinue() {
-        System.out.println("Pressione qualquer coisa para continuar...");
-        scanner.nextLine();
+        try {
+            Thread.sleep(1000);
+            System.out.println();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public static void printWithDelay(String text, int delayMillis) {
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            try {
+                Thread.sleep(delayMillis);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        System.out.println(); // pula linha no final
     }
 
     public static void clearConsole(){
@@ -96,7 +302,6 @@ public class Jogo {
     }
 
     public static void combate(Inimigo inimigo) {
-        int input;
 
         do {
             clearConsole();
@@ -123,7 +328,7 @@ public class Jogo {
         }while (personagem.estaVivo() && inimigo.estaVivo());
     }
 
-    private static String escolherAcaoNoCombate() {
+    private static void escolherAcaoNoCombate() {
         System.out.println("Escolha sua ação!");
 
         System.out.println("1 - Lutar");
