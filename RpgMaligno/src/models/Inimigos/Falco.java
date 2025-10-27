@@ -8,13 +8,10 @@ public class Falco extends Inimigo {
 
     }
 
-    public Falco(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
-        super(nome, pontosVida, ataque, defesa, nivel, inventario);
+    public Falco(String nome) throws Exception {
+        super(nome, (byte)150, (byte)150, (byte)50, (byte)50, (byte)4, criarInventario());
     }
 
-    public Falco(String nome) throws Exception {
-        super("Falco", (byte)150, (byte)50, (byte)50, (byte)4, criarInventario());
-    }
     private static Inventario criarInventario() throws Exception {
         Inventario inv = new Inventario();
         return inv;

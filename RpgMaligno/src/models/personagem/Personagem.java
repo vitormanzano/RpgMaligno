@@ -4,14 +4,15 @@ import models.Inventario;
 
 public abstract class Personagem {
     private String nome;
-    private byte pontosVida, ataque, defesa, nivel; 
+    private byte pontosVida, maxPontosVida, ataque, defesa, nivel;
     private Inventario inventario;
 
     public Personagem() { }
 
-    public Personagem(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
+    public Personagem(String nome, byte pontosVida, byte maxPontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
         this.nome = nome;
         this.pontosVida = pontosVida;
+        this.maxPontosVida = pontosVida;
         this.ataque = ataque;
         this.defesa = defesa;
         this.nivel = nivel;
@@ -32,7 +33,15 @@ public abstract class Personagem {
 
     public void setPontosVida(byte pontosVida) {
         this.pontosVida = pontosVida;
-    } 
+    }
+
+    public byte getMaxPontosVida() {
+        return this.maxPontosVida;
+    }
+
+    public void setMaxPontosVida(byte maxPontosVida) {
+        this.maxPontosVida = maxPontosVida;
+    }
 
     public byte getAtaque() {
         return this.ataque;
@@ -66,12 +75,22 @@ public abstract class Personagem {
         this.inventario = inventario;
     }
 
+    public void aumentarNivel() {
+        this.nivel++;
+        this.maxPontosVida = (byte)(this.maxPontosVida + (this.maxPontosVida + 3));
+        this.pontosVida = (byte)(this.pontosVida + (this.pontosVida + 3));
+        this.ataque = (byte)(this.ataque + 3);
+        this.defesa = (byte)(this.defesa + 3);
+    }
+
     public boolean estaVivo() {
         return this.pontosVida > 0;
     }
 
     public void recebeuAtaque(byte danoAtaque) {
-        this.pontosVida = (byte)(this.pontosVida - (this.defesa - danoAtaque));
+        if (this.defesa > danoAtaque)
+            return;
+        this.pontosVida = (byte)(this.pontosVida - (danoAtaque - this.defesa));
     }
 
     public byte atacarInimigo() {
@@ -91,23 +110,16 @@ public abstract class Personagem {
         }
         byte resultado = (byte)(Math.random() * 20 + 1);
 
-        try {
-            Thread.sleep(600);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
         System.out.println("\n➡ Você tirou: " + resultado);
         return resultado;
     }
 
-    @Override
     public String toString() {
-        return "Nome: " + this.nome + "| " +
-                " Nível: " + this.nivel + "|" +
-                " HP: " + this.pontosVida + "|" +
-                " Ataque: " + this.ataque + "|" +
-                " Defesa: " + this.defesa + "|";
+        return "Nome: " + this.nome +
+                " | Nível: " + this.nivel +
+                " | HP: " + this.pontosVida + "/" + this.maxPontosVida +
+                " | Ataque: " + this.ataque +
+                " | Defesa: " + this.defesa;
     }
 
     @Override

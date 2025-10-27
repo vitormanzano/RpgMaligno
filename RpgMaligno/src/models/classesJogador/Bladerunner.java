@@ -9,12 +9,12 @@ public class Bladerunner extends Personagem implements Cloneable {
 
     public Bladerunner() { }
 
-    public Bladerunner(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
-        super(nome, pontosVida, ataque, defesa, nivel, inventario);
+    public Bladerunner(String nome, byte pontosVida, byte maxPontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
+        super(nome, pontosVida, maxPontosVida, ataque, defesa, nivel, inventario);
     }
 
     public Bladerunner(String nome) throws Exception {
-        super(nome, (byte)75, (byte)30, (byte)30, (byte)1, criarInventario());
+        super(nome, (byte)75, (byte)75, (byte)30, (byte)30, (byte)1, criarInventario());
     }
 
     public Bladerunner(Bladerunner modelo) throws Exception {

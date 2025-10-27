@@ -1,9 +1,7 @@
 package jogo;
 
 import models.Inimigos.Falco;
-import models.personagem.Personagem;
 
-import static jogo.Jogo.combate;
 import static jogo.Jogo.printWithDelay;
 
 public class Historia {
@@ -456,7 +454,7 @@ public class Historia {
         Jogo.pressAnythingToContinue();
         printWithDelay("Falco: “Ela morreu porque tentou brincar com deuses, garoto. E você vai morrer tentando imitar ela.”",30);
         Jogo.pressAnythingToContinue();
-        combate(new Falco());
+
     }
 
     public static void printFinal1() {

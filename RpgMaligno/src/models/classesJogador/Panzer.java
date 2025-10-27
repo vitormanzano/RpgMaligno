@@ -9,12 +9,12 @@ public class Panzer extends Personagem implements Cloneable {
 
     public Panzer() { }
 
-    public Panzer(String nome, byte pontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
-        super(nome, pontosVida, ataque, defesa, nivel, inventario);
+    public Panzer(String nome, byte pontosVida, byte maxPontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
+        super(nome, pontosVida, maxPontosVida, ataque, defesa, nivel, inventario);
     }
 
     public Panzer(String nome) throws Exception {
-        super(nome, (byte)100, (byte)20, (byte)50, (byte)1, criarInventario());
+        super(nome, (byte)100, (byte)100, (byte)20, (byte)50, (byte)1, criarInventario());
     }
 
     public Panzer(Panzer modelo) throws Exception {

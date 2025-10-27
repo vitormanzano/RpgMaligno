@@ -5,8 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Inventario implements Cloneable {
-    public List<Item> itens = new ArrayList<>();
-    private final byte QUANTIDADE_MAXIMA_DE_ITENS = 10;
+    private List<Item> itens = new ArrayList<>();
 
     public Inventario(List<Item> itens) {
         this.itens = itens;
@@ -14,12 +13,15 @@ public class Inventario implements Cloneable {
 
     public Inventario() { }
 
-    public void adicionarItem(Item item) throws Exception {
-        byte quantidadeTotal = getQuantidadeDeItens();
+    public List<Item> getItens() {
+        return itens;
+    }
 
-        if (quantidadeTotal == QUANTIDADE_MAXIMA_DE_ITENS) 
-            throw new Exception("Quantidade limite de itens atingida!");
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
 
+    public void adicionarItem(Item item)  {
         Item itemDoInventario = verificarSeItemJaExisteNoInventario(item);
         if (itemDoInventario == null)
             itens.add(item); // Se esse item nao existir, insiro ele no inventário
@@ -68,7 +70,7 @@ public class Inventario implements Cloneable {
     }
 
     public Item getItem(int index) {
-        return itens.get(index);
+        return itens.get(index - 1);
     }
 
     @Override
