@@ -1,0 +1,9 @@
+﻿Autoavaliação: Renan Martins Lother - 24006902
+
+
+Durante o desenvolvimento do projeto, fui responsável por toda a parte narrativa, incluindo a criação da história, diálogos, inimigos, itens, escolhas e ambientações. Trabalhei para garantir uma progressão coerente, conectando os elementos narrativos com as mecânicas do jogo.
+A partir das classes base desenvolvidas pelo Vitor, como Jogador, Item e Personagem, criei suas variações e especializações, estruturando as três classes principais do jogo e expandindo o sistema com novos tipos de inimigos e objetos interativos.
+Implementei lógicas específicas para eventos, combate e escolhas, garantindo que o jogo respondesse adequadamente às ações do jogador e mantivesse consistência nos estados e transições.
+Além disso, realizei testes e ajustes de balanceamento, temporização e fluxo narrativo, aprimorando a imersão e a experiência geral do jogo.
+Nota atribuída: 8,0
+Reconheço um bom domínio técnico e criativo, com destaque para a integração entre código e narrativa. Ainda há espaço para aprimorar a organização do código e a gestão de tempo e tarefas, mas considero que alcancei os objetivos propostos do trabalho.
