@@ -9,7 +9,7 @@ public class Falco extends Inimigo {
     }
 
     public Falco(String nome) throws Exception {
-        super(nome, (byte)150, (byte)150, (byte)50, (byte)50, (byte)4, criarInventario());
+        super(nome, (byte)127, (byte)127, (byte)30, (byte)35, (byte)4, criarInventario());
     }
 
     private static Inventario criarInventario() throws Exception {

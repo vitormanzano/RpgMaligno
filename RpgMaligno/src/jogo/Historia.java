@@ -450,7 +450,6 @@ public class Historia {
         printWithDelay("Você: “Minha mãe morreu por causa disso. Eu não vou entregar nada. Você é um bosta Falco”",30);
         Jogo.pressAnythingToContinue();
         printWithDelay("Falco: “Ela morreu porque tentou brincar com deuses, garoto. E você vai morrer tentando imitar ela.”",30);
-        Jogo.pressAnythingToContinue();
 
     }
 

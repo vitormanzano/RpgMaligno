@@ -10,10 +10,6 @@ public class Cybermancer extends Personagem implements Cloneable {
 
     public Cybermancer() { }
 
-    public Cybermancer(String nome, byte pontosVida, byte maxPontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
-        super(nome, pontosVida, maxPontosVida, ataque, defesa, nivel, inventario);
-    }
-
     public Cybermancer(String nome) throws Exception {
         super(nome, (byte)50, (byte)50, (byte)40, (byte)20, (byte)1, criarInventario());
     }
@@ -24,6 +20,7 @@ public class Cybermancer extends Personagem implements Cloneable {
 
         this.setNome(modelo.getNome());
         this.setPontosVida(modelo.getPontosVida());;
+        this.setMaxPontosVida(modelo.getMaxPontosVida());
         this.setAtaque(modelo.getAtaque());
         this.setDefesa(modelo.getDefesa());
         this.setNivel(modelo.getNivel());

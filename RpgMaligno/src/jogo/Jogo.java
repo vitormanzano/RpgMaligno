@@ -36,36 +36,36 @@ public class Jogo {
     }
 
     public void iniciarIntroducao() throws Exception {
-        Historia.printIntroducao();
-        printClasses();
+        //Historia.printIntroducao();
+        //printClasses();
         escolherClasse();
     }
 
     public void ato1() throws Exception {
-        savePoint();
-        printAto1();
-        aceitarTrampo();
-        escolha1();
-        escolhaArmazem();
-        personagem.aumentarNivel();
-        System.out.println("Parabéns! Você acabou de subir de nível!");
-        System.out.println(personagem);
+//        savePoint();
+//        printAto1();
+//        aceitarTrampo();
+//        escolha1();
+//        escolhaArmazem();
+       personagem.aumentarNivel();
+//        System.out.println("Parabéns! Você acabou de subir de nível!");
+//        System.out.println(personagem);
     }
 
     public void ato2() throws Exception {
-        this.atoAtual = 2;
-        savePoint();
-        printAto2();
-        escolhaAto2();
+//        this.atoAtual = 2;
+//        savePoint();
+//        printAto2();
+//        escolhaAto2();
         personagem.aumentarNivel();
         System.out.println("Parabéns! Você acabou de subir de nível!");
     }
 
     public void ato3() throws Exception {
         this.atoAtual = 3;
-        savePoint();
+//        savePoint();
         printCarga();
-        combate(new Falco());
+        combate(new Falco("Falco"));
     }
 
     public void savePoint() throws Exception {
@@ -440,14 +440,15 @@ public class Jogo {
 
             switch (opcao) {
                 case "1" -> {
+                    System.out.println("Inimigo Atacando...");
                     byte dano = inimigo.atacarInimigo();
                     personagem.recebeuAtaque(dano);
 
-                    if (!inimigo.estaVivo()) break;
+                    if (!personagem.estaVivo()) break;
 
+                    System.out.println("Você está atacando...");
                     dano = personagem.atacarInimigo();
                     inimigo.recebeuAtaque(dano);
-                    if (!personagem.estaVivo());
                 }
                 case "2" -> {
                     usarItem(personagem, inimigo);
@@ -473,7 +474,7 @@ public class Jogo {
         }
         if (!personagem.estaVivo()) {
             printMorte();
-            System.exit(0);
+            voltarNoSavePoint(atoAtual);
         }
         else {
             adicionarItemInimigoNoInventario(personagem, inimigo);

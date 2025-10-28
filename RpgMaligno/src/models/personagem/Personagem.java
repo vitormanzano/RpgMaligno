@@ -11,8 +11,8 @@ public abstract class Personagem {
 
     public Personagem(String nome, byte pontosVida, byte maxPontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
         this.nome = nome;
+        this.maxPontosVida = maxPontosVida;
         this.pontosVida = pontosVida;
-        this.maxPontosVida = pontosVida;
         this.ataque = ataque;
         this.defesa = defesa;
         this.nivel = nivel;
@@ -32,6 +32,8 @@ public abstract class Personagem {
     }
 
     public void setPontosVida(byte pontosVida) {
+        if (pontosVida > this.maxPontosVida) pontosVida = this.maxPontosVida;
+
         this.pontosVida = pontosVida;
     }
 
@@ -77,8 +79,8 @@ public abstract class Personagem {
 
     public void aumentarNivel() {
         this.nivel++;
-        this.maxPontosVida = (byte)(this.maxPontosVida + (this.maxPontosVida + 3));
-        this.pontosVida = (byte)(this.pontosVida + (this.pontosVida + 3));
+        this.maxPontosVida = (byte)(this.maxPontosVida + 3);
+        this.pontosVida = (byte)(this.pontosVida + 3);
         this.ataque = (byte)(this.ataque + 3);
         this.defesa = (byte)(this.defesa + 3);
     }
@@ -90,6 +92,12 @@ public abstract class Personagem {
     public void recebeuAtaque(byte danoAtaque) {
         if (this.defesa > danoAtaque)
             return;
+
+        if (danoAtaque > this.pontosVida)
+        {
+            this.pontosVida = 0;
+            return;
+        }
         this.pontosVida = (byte)(this.pontosVida - (danoAtaque - this.defesa));
     }
 

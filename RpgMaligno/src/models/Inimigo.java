@@ -7,8 +7,8 @@ public class Inimigo extends Personagem {
 
     public Inimigo(String nome, byte pontosVida, byte maxPontosVida, byte ataque, byte defesa, byte nivel, Inventario inventario) throws Exception {
         this.setNome(nome);
-        this.setPontosVida(pontosVida);
         this.setMaxPontosVida(maxPontosVida);
+        this.setPontosVida(pontosVida);
         this.setAtaque(ataque);
         this.setDefesa(defesa);
         this.setNivel(nivel);

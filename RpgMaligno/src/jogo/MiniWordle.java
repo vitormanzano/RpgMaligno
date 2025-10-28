@@ -7,7 +7,8 @@ import static jogo.Jogo.pressAnythingToContinue;
 import static jogo.Jogo.printWithDelay;
 
 public class MiniWordle {
-    public static void jogarWordle() {
+
+    public static void jogarWordle() throws Exception {
         Scanner sc = new Scanner(System.in);
 
         String senha = "4321";
@@ -82,7 +83,7 @@ public class MiniWordle {
             printWithDelay("Um disparo final ecoa. Sua visão se apaga. Fim.", 35);
             pressAnythingToContinue();
             printMorte();
-            System.exit(0);
+            return;
         }
 
         sc.close();
