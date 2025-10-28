@@ -7,7 +7,7 @@ import static jogo.Jogo.pressAnythingToContinue;
 import static jogo.Jogo.printWithDelay;
 
 public class MiniWordle {
-    public static void main(String[] args) {
+    public static void jogarWordle() {
         Scanner sc = new Scanner(System.in);
 
         String senha = "4321";
@@ -72,6 +72,7 @@ public class MiniWordle {
 
         if (tentativas == 0) {
             System.out.println("\nSenha não aceita. Sistema de segurança ativado.");
+            pressAnythingToContinue();
             printWithDelay("Um alarme estridente corta o ar, fazendo seus tímpanos pulsarem.", 35);
             pressAnythingToContinue();
             printWithDelay("As luzes vermelhas piscam freneticamente enquanto drones e guardas cercam você, armas apontadas.", 35);

@@ -61,7 +61,7 @@ public class Inventario implements Cloneable {
         return quantidadeItens;
     }
 
-    private Item verificarSeItemJaExisteNoInventario(Item item) {
+    public Item verificarSeItemJaExisteNoInventario(Item item) {
         for (Item currentItem : itens) {
             if (currentItem.verificarSeItemEhIgual(item))
                 return currentItem;

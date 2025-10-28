@@ -10,7 +10,7 @@ public class Marginal extends Inimigo {
     }
 
     public Marginal(String nome) throws Exception {
-        super(nome, (byte)25, (byte)25, (byte)25, (byte)10, (byte)1, criarInventario());
+        super(nome, (byte)25, (byte)25, (byte)15, (byte)10, (byte)1, criarInventario());
     }
 
     private static Inventario criarInventario() throws Exception {

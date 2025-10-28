@@ -1,8 +1,6 @@
 package jogo;
 
-import Itens.ModuloCamuflagem;
-import Itens.Nanogel;
-import Itens.NucleoInstavel;
+import Itens.*;
 import models.Inimigo;
 import models.Inimigos.*;
 import models.Item;
@@ -20,6 +18,7 @@ public class Jogo {
 
     private  byte atoAtual = 1;
     private Personagem personagem;
+    public Jogo() { }
 
     public void iniciarJogo() throws Exception {
         System.out.println(" Bem-vindo ao");
@@ -38,7 +37,7 @@ public class Jogo {
 
     public void iniciarIntroducao() throws Exception {
         Historia.printIntroducao();
-        //printClasses();
+        printClasses();
         escolherClasse();
     }
 
@@ -59,6 +58,7 @@ public class Jogo {
         printAto2();
         escolhaAto2();
         personagem.aumentarNivel();
+        System.out.println("Parabéns! Você acabou de subir de nível!");
     }
 
     public void ato3() throws Exception {
@@ -177,6 +177,8 @@ public class Jogo {
                 case "1" -> {
                     Historia.falaBeco1();
                     combate(new Marginal("Marginal"));
+                    personagem.getInventario().adicionarItem(new ModuloCamuflagem());
+                    printPreArmazem();
                 }
                 case "2" -> {
                     Historia.falaBeco2();
@@ -214,6 +216,7 @@ public class Jogo {
                         printFalhaHack();
                         combate(new Guarda("Guarda"));
                         printOpt1End();
+                        personagem.getInventario().removerItem(new CartaoDeAcesso());
                     }
                     else{
                         printSucessoHack();
@@ -253,6 +256,7 @@ public class Jogo {
             switch (opcao) {
                 case "1" -> {
                     Historia.printOpt3Start();
+                    personagem.getInventario().removerItem(new ModuloCamuflagem());
                     combate(new GuardaDanificado("Guarda Danificado"));
                     Historia.printOpt3End();
                 }
@@ -295,7 +299,7 @@ public class Jogo {
                     Historia.printCorredor1();
                     combate(new Drone("Drone"));
                     Historia.printCorredor2();
-                    new MiniWordle();
+                    MiniWordle.jogarWordle();
                 }
                 case "2" -> {
                     Historia.printPassarelas();
@@ -306,18 +310,18 @@ public class Jogo {
                         printFalhaStealth2();
                         printSucessoStealth();
                         escolhaEscritorio();
-                        printLutaEnd();
+
                     }
                     else{
                         printSucessoStealth();
                         escolhaEscritorio();
-                        printLutaEnd();
+
                     }
                 }
                 case "3" -> {
                     Historia.printEscritorio();
                     escolhaEscritorio();
-                    printLutaEnd();
+
                 }
 
                 default -> {
@@ -345,14 +349,22 @@ public class Jogo {
                     combate(new ChromeSkull("Chrome Skull"));
                     Historia.printLutaEnd();
                     Historia.printCorredor2();
-                    new MiniWordle();
+                    MiniWordle.jogarWordle();
                 }
                 case "2" -> {
-                    Historia.printPEM();
-                    Historia.printLutaEnd();
-                    Historia.printCorredor2();
-                    new MiniWordle();
-
+                    Item item =  personagem.getInventario().verificarSeItemJaExisteNoInventario(new NucleoInstavel());
+                    if (item == null){
+                        System.out.println("Você não tem um Núcleo Instável no inventário. Tente explorar mais o mapa da próxima vez!");
+                        System.out.println("Não restam opções, você precisa lutar.");
+                        continue;
+                    }
+                    else {
+                        Historia.printPEM();
+                        personagem.getInventario().removerItem(new NucleoInstavel());
+                        Historia.printLutaEnd();
+                        Historia.printCorredor2();
+                        MiniWordle.jogarWordle();
+                    }
                 }
                 default -> {
                     System.out.println("Opção inválida! Tente novamente.");
@@ -452,16 +464,13 @@ public class Jogo {
             Jogo.clearConsole();
             printarDadosBatalha(personagem, inimigo);
         } while (personagem.estaVivo() && inimigo.estaVivo());
-        if(inimigo.getClass() == Falco.class)
+        if(inimigo.getClass() == Falco.class) {
             if (!personagem.estaVivo()) {
                 printFinal2();
-                System.out.println("Voltando para seu ultimo savepoint...");
-                voltarNoSavePoint((byte) (this.atoAtual - 1));
-            }
-            else {
+            } else {
                 printFinal1();
             }
-
+        }
         if (!personagem.estaVivo()) {
             printMorte();
             System.exit(0);
@@ -485,7 +494,9 @@ public class Jogo {
 
     private void aplicarEfeitosItem(Item item, Personagem personagem, Inimigo inimigo) {
         if (item.getClass() == Nanogel.class)
-            personagem.setPontosVida((byte)(personagem.getPontosVida() + 15));
+            personagem.setPontosVida((byte)(personagem.getPontosVida() + 25));
+        if (item.getClass() == NanogelPrime.class)
+            personagem.setPontosVida((byte)(personagem.getPontosVida() + 50));
         if (item.getClass() == NucleoInstavel.class)
             inimigo.setPontosVida((byte) (inimigo.getPontosVida() - 100));
     }
@@ -508,7 +519,6 @@ public class Jogo {
 
         System.out.println("1 - Lutar");
         System.out.println("2 - Usar item");
-        System.out.println("3 - Fugir");
 
         System.out.print("Opção: ");
     }

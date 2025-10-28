@@ -9,7 +9,7 @@ public class ChromeSkull extends Inimigo {
     }
 
     public ChromeSkull(String nome) throws Exception {
-        super(nome, (byte)125, (byte)125, (byte)40, (byte)25, (byte)3, criarInventario());
+        super(nome, (byte)125, (byte)125, (byte)20, (byte)25, (byte)3, criarInventario());
     }
 
     private static Inventario criarInventario() throws Exception {

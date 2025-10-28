@@ -32,7 +32,6 @@ public class Historia {
         printWithDelay("Espada Disassembler\n\n" +
                 "Lâmina gravitônica capaz de distorcer o espaço em volta do alvo.\n" +
                 "Cortes tão limpos que os sensores nervosos nem têm tempo de reagir.\n" +
-                "Pulso de Colapso (50% chance de puxar e esquartejar inimigos)\n\n" +
                 "Classe: BladeRunner(Guerreiro)\n" +
                 "HP: 75\n" +
                 "Ataque: 30\n" +
@@ -45,7 +44,6 @@ public class Historia {
         printWithDelay("Cajado Trojan\n\n" +
                 "Bastão neural forjado com circuitos vivos.\n" +
                 "Sintoniza-se à Rede e emite pulsos mentais que sobrecarregam sinapses e chips.\n" +
-                "Sobrecarga Neural (50% chance de paralizar o inimigo ao atacar)\n\n" +
                 "Classe: Cybermancer (Mago)\n" +
                 "HP: 50\n" +
                 "Ataque: 40\n" +
@@ -57,8 +55,7 @@ public class Historia {
         System.out.println("---------------------------------------------------------------");
         printWithDelay("Escudo Firewall\n\n" +
                 "Blindagem tática alimentada por um reator térmico pulsante.\n" +
-                "Cada impacto acende o campo protetor, devolvendo parte do dano ao inimigo.\n" +
-                "Reflexão Prismática (50% chance de refletir metado do dano do ataque ao inimigo)\n\n" +
+                "Cada impacto acende o campo protetor.\n" +
                 "Classe: Panzer(Tanque)\n" +
                 "HP: 100\n" +
                 "Ataque: 20\n" +

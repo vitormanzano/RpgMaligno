@@ -11,7 +11,7 @@ public class Guarda extends Inimigo {
     }
 
     public Guarda(String nome) throws Exception {
-        super(nome, (byte)50, (byte)50, (byte)35, (byte)25, (byte)2, criarInventario());
+        super(nome, (byte)50, (byte)50, (byte)30, (byte)25, (byte)2, criarInventario());
     }
 
     private static Inventario criarInventario() throws Exception {
